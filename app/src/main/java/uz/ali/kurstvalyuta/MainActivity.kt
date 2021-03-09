@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var prefs:SharedPreferences
 
     fun aa() {
-
+//commit new
         roomDao = AppDatabase.getInstance()!!
         api = NetworkConnection.getInstance().getApiClient()
 
