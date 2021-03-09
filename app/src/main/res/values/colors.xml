@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#0040ff</color>
+    <color name="purple_500">#0040ff</color>
+    <color name="purple_700">#0040ff</color>
+    <color name="teal_200">#e61919</color>
+    <color name="teal_700">#121212</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="yashil">#7cd35f</color>
+    <color name="qizil">#e61919</color>
+    <color name="kok">#0080ff</color>
+    <color name="kokDark">#0040ff</color>
+
+    <color name="btn_pas">#555759</color>
+
+    <color name="yashill">#7cd35f</color>
+    <color name="qizill">#000000</color>
+    <color name="kokk">#0080ff</color>
+    <color name="qiz">#7B1FA2</color>
+    <color name="sari">#FFA000</color>
+    <color name="saaaari">#fffefe</color>
+    <color name="oqedit">#b0b0b0</color>
+
+
+
+
+</resources>

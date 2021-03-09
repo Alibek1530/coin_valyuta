@@ -1,0 +1,61 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.KustValyuta" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/teal_700</item>
+        <item name="colorPrimaryVariant">@color/teal_200</item>
+        <item name="colorOnPrimary">@color/saaaari</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/kokk</item>
+        <item name="colorSecondaryVariant">@color/saaaari</item>
+        <item name="colorOnSecondary">@color/qiz</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="BottomSheetItem">
+        <item name="android:textSize">20sp</item>
+        <item name="android:drawablePadding">20dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">15dp</item>
+        <!--        <item name="fontFamily">@font/mono_bold</item>-->
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+
+
+
+<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
+<!--    &lt;!&ndash;    <style name="Theme.KustValyuta" parent="Theme.MaterialComponents.DayNight.NoActionBar">&ndash;&gt;-->
+<!--    <style name="Theme.KustValyuta" parent="Theme.AppCompat.DayNight.NoActionBar">-->
+<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/purple_500</item>-->
+<!--        <item name="colorPrimaryVariant">@color/purple_700</item>-->
+<!--        <item name="colorOnPrimary">@color/white</item>-->
+<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+<!--        <item name="colorSecondary">@color/teal_200</item>-->
+<!--        <item name="colorSecondaryVariant">@color/teal_700</item>-->
+<!--        <item name="colorOnSecondary">@color/black</item>-->
+<!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
+<!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--    </style>-->
+
+<!--    <style name="BottomSheetItem">-->
+<!--        <item name="android:textSize">20sp</item>-->
+<!--        <item name="android:drawablePadding">20dp</item>-->
+<!--        <item name="android:layout_width">0dp</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:padding">15dp</item>-->
+<!--        &lt;!&ndash;        <item name="fontFamily">@font/mono_bold</item>&ndash;&gt;-->
+<!--    </style>-->
+
+
+
+
+
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="uz.ali.kurstvalyuta.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/kalendarFragment"
+        android:name="uz.ali.kurstvalyuta.KalendarFragment"
+        android:label="fragment_kalendar"
+        tools:layout="@layout/fragment_kalendar" />
+    <fragment
+        android:id="@+id/statistikaFragment"
+        android:name="uz.ali.kurstvalyuta.StatistikaFragment"
+        android:label="fragment_statistika"
+        tools:layout="@layout/fragment_statistika" />
+    <fragment
+        android:id="@+id/nastroykaFragment"
+        android:name="uz.ali.kurstvalyuta.NastroykaFragment"
+        android:label="fragment_nastroyka"
+        tools:layout="@layout/fragment_nastroyka" />
+    <fragment
+        android:id="@+id/convetorFragment"
+        android:name="uz.ali.kurstvalyuta.home.conves.ConvetorFragment"
+        android:label="fragment_convetor"
+        tools:layout="@layout/fragment_convetor" />
+
+</navigation>
