@@ -1,11 +1,14 @@
 package uz.ali.kurstvalyuta.adapters
 
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 import uz.ali.kurstvalyuta.ModelServer.DataModelItem
 import uz.ali.kurstvalyuta.R
@@ -16,7 +19,13 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var map: MutableMap<String, Int> = HashMap()
 
+    lateinit var til: String
+    lateinit var sum: String
+    lateinit var prefs: SharedPreferences
+
     init {
+        prefs = PreferenceManager.getDefaultSharedPreferences(mContext.context)
+        til = prefs.getString("til", "CcyNm_UZ").toString()
         map["784"] = R.drawable.ae
         map["971"] = R.drawable.af
         map["051"] = R.drawable.am
@@ -145,9 +154,9 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
             if (a != null) {
                 HomeFlag.setImageResource(a)
             }
+            HomeTitle.text = setChange(model)
 
-            HomeTitle.text = model.CcyNm_UZ
-            HomeTextSom.text = model.Rate + " so'm"
+            HomeTextSom.text = model.Rate + sum
 
             if (!model.Diff.equals("")) {
                 if (model.Diff.toFloat() > 0) {
@@ -172,4 +181,23 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
         }
 
     }
+
+    private fun setChange(model: DataModelItem): String {
+        var temp = ""
+        if (til.equals("CcyNm_UZ")) {
+            sum = " so'm"
+            temp = model.CcyNm_UZ
+        } else if (til.equals("CcyNm_UZC")) {
+            sum = " сум"
+            temp = model.CcyNm_UZC
+        } else if (til.equals("CcyNm_RU")) {
+            sum = " сум"
+            temp = model.CcyNm_RU
+        } else if (til.equals("CcyNm_EN")) {
+            sum = " som"
+            temp = model.CcyNm_EN
+        }
+        return temp
+    }
+
 }

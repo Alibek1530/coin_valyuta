@@ -1,5 +1,7 @@
 package uz.ali.kurstvalyuta.adapters
 
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +15,14 @@ import uz.ali.kurstvalyuta.R
 class AdaprerCalendar(var dataVertical: List<DataModelItem>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var map: MutableMap<String, Int> = HashMap()
+
+    lateinit var prefs: SharedPreferences
+    lateinit var til: String
+    lateinit var sum: String
+
+init {
+
+}
 
     override fun getItemCount(): Int {
         return dataVertical.size
@@ -28,6 +38,8 @@ class AdaprerCalendar(var dataVertical: List<DataModelItem>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         //inflate your layout and pass it to view holder
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_calendar, parent, false)
+        prefs = PreferenceManager.getDefaultSharedPreferences(v.context)
+        til = prefs.getString("til", "CcyNm_UZ").toString()
         return MyViewHolder(v)
     }
 
@@ -40,8 +52,9 @@ class AdaprerCalendar(var dataVertical: List<DataModelItem>) :
         var HomeFlagPlus = v.findViewById<ImageView>(R.id.HomeImagePlus1)
 
         fun bind(model: DataModelItem) {
-            HomeTitle.text = model.CcyNm_UZ
-            HomeTextSom.text = model.Rate + " so'm"
+
+            HomeTitle.text = setChange(model)
+            HomeTextSom.text = model.Rate + sum
 
             if (!model.Diff.equals("")) {
                 if (model.Diff.toFloat() > 0) {
@@ -60,5 +73,22 @@ class AdaprerCalendar(var dataVertical: List<DataModelItem>) :
             }
         }
 
+    }
+    private fun setChange(model: DataModelItem): String {
+        var temp = ""
+        if (til.equals("CcyNm_UZ")) {
+            sum = " so'm"
+            temp = model.CcyNm_UZ
+        } else if (til.equals("CcyNm_UZC")) {
+            sum = " сум"
+            temp = model.CcyNm_UZC
+        } else if (til.equals("CcyNm_RU")) {
+            sum = " сум"
+            temp = model.CcyNm_RU
+        } else if (til.equals("CcyNm_EN")) {
+            sum = " som"
+            temp = model.CcyNm_EN
+        }
+        return temp
     }
 }

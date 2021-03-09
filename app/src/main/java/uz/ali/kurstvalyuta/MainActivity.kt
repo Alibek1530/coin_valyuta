@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() {
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener OnNavigationItemSelectedListener@{
-
+            Toast.makeText(this,"Alibek saymov",Toast.LENGTH_SHORT).show()
             when (it.itemId) {
                 R.id.page_1 -> {
 

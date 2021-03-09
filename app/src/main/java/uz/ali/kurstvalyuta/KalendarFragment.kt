@@ -1,5 +1,6 @@
 package uz.ali.kurstvalyuta
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
@@ -38,6 +39,7 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
     lateinit var frameLayout: FrameLayout
     lateinit var calendar: Calendar
     lateinit var toolbarCalendar: Toolbar
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
