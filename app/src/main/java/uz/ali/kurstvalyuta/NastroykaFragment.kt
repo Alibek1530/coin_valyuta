@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import uz.ali.kurstvalyuta.databinding.FragmentNastroykaBinding
+import uz.ali.kurstvalyuta.utils.RuntimeLocaleChanger
 
 
 class NastroykaFragment() : Fragment() {
@@ -126,13 +127,23 @@ class NastroykaFragment() : Fragment() {
 
 
         binding.cardJonat.setOnClickListener {
-            ShareF()
+         //   ShareF()
+
+            RuntimeLocaleChanger.setNewLocale(view.context, "ru")
+
+            Toast.makeText(view.context,"jonat  "+getString(R.string.home),Toast.LENGTH_SHORT).show()
         }
         binding.cardBaxo.setOnClickListener {
-            PlayMarketStar()
+            RuntimeLocaleChanger.setNewLocale(view.context, "uz")
+            // PlayMarketStar()
+          var a=  RuntimeLocaleChanger.getLocale(view.context)
+            Toast.makeText(view.context,"baxo  "+getString(R.string.home),Toast.LENGTH_SHORT).show()
         }
         binding.cardGmail.setOnClickListener {
-            ali()
+            //     ali()
+            RuntimeLocaleChanger.setNewLocale(view.context, "en")
+            Toast.makeText(view.context,"gmail  "+getString(R.string.home),Toast.LENGTH_SHORT).show()
+
         }
 
     }
@@ -155,15 +166,13 @@ class NastroykaFragment() : Fragment() {
         startActivity(intent)
     }
 
-    fun ali(){
+    fun ali() {
         val emailIntent =
             Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"))
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
         emailIntent.putExtra(Intent.EXTRA_TEXT, "body")
         startActivity(Intent.createChooser(emailIntent, "Chooser Title"))
     }
-
-
 
 
     private fun setChange() {

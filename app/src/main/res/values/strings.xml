@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">KursValyuta</string>
+    <string name="home">home</string>
+    <string name="kalendar">kalendar</string>
+    <string name="statistika">statistika</string>
+    <string name="nastroyka">nastroyka</string>
 
 
-
-    <string name="shareApp">Эта программа интересна и бесплатна для проведения свободного времени :)
+    <string name="shareApp">Bu default :)
         https://play.google.com/store/apps/details?id=com.ali.filmgokino
     </string>
     <!--com.ali.filmgokino-->

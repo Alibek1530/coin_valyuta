@@ -18,16 +18,19 @@ import uz.ali.kurstvalyuta.network.ApiService
 import uz.ali.kurstvalyuta.network.NetworkConnection
 import uz.ali.kurstvalyuta.room.AppDatabase
 import uz.ali.kurstvalyuta.room.UserDao
+import uz.ali.kurstvalyuta.utils.RuntimeLocaleChanger
 
 class MainActivity : AppCompatActivity() {
     lateinit var navController: NavController
     lateinit var bottomNavigationView: BottomNavigationView
     lateinit var api: ApiService
     lateinit var roomDao: UserDao
+
     //lateinit var list:ArrayList<DataModel>
-    lateinit var prefs:SharedPreferences
+    lateinit var prefs: SharedPreferences
 
     fun aa() {
+
 //commit new
         roomDao = AppDatabase.getInstance()!!
         api = NetworkConnection.getInstance().getApiClient()
@@ -55,11 +58,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         prefs = PreferenceManager.getDefaultSharedPreferences(this)
-
-        if (prefs.getString("tema","kun").equals("kun")){
+        RuntimeLocaleChanger.getLocale(this)
+        if (prefs.getString("tema", "kun").equals("kun")) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             prefs.edit().putString("tema", "kun").apply()
-        }else{
+        } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             prefs.edit().putString("tema", "tun").apply()
         }
@@ -72,8 +75,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-
-
         //       list= arrayListOf()
         navController = Navigation.findNavController(this, R.id.frag_oyna)
         bottomNavigationView = findViewById(R.id.Bottom_Menu)
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         aa()
 
         //  roomDao?.insert(list)
-    //    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        //    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         //  setTheme(R.style.Theme_MaterialComponents_DayNight_DarkActionBar)
 
 
@@ -107,10 +108,6 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.page_4 -> {
-
-
-
-
 
 
                     navController.navigate(R.id.nastroykaFragment)

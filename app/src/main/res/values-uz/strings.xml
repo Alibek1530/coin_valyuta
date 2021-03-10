@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">KursValyuta</string>
-    <string name="home">главний</string>
-    <string name="kalendar">календар</string>
-    <string name="statistika">статистика</string>
-    <string name="nastroyka">настройка</string>
 
+    <string name="home">Asosiy</string>
+    <string name="kalendar">Kalendar</string>
+    <string name="statistika">Diagramma</string>
+    <string name="nastroyka">Sozlama</string>
 
-    <string name="shareApp">Эта программа интересна и бесплатна для проведения свободного времени :)
+    <string name="shareApp">Bvdfbdfb :)
         https://play.google.com/store/apps/details?id=com.ali.filmgokino
     </string>
     <!--com.ali.filmgokino-->
@@ -31,4 +31,5 @@
         <item>Ruby</item>
         <item>JavaScript</item>
     </string-array>
+
 </resources>
