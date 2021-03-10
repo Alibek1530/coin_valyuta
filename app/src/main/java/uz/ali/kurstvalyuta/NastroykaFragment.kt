@@ -1,24 +1,21 @@
 package uz.ali.kurstvalyuta
 
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import uz.ali.kurstvalyuta.databinding.FragmentNastroykaBinding
 
 
-class NastroykaFragment : Fragment() {
+class NastroykaFragment() : Fragment() {
     private lateinit var binding: FragmentNastroykaBinding
     lateinit var prefs: SharedPreferences
     lateinit var til: String
@@ -68,7 +65,7 @@ class NastroykaFragment : Fragment() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 prefs.edit().putString("tema", "kun").apply()
             }
-            tema = prefs.getString("tema","kun").toString()
+            tema = prefs.getString("tema", "kun").toString()
 
             setChange()
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
@@ -80,7 +77,7 @@ class NastroykaFragment : Fragment() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 prefs.edit().putString("tema", "tun").apply()
             }
-            tema = prefs.getString("tema","tun").toString()
+            tema = prefs.getString("tema", "tun").toString()
 
             setChange()
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
@@ -101,41 +98,86 @@ class NastroykaFragment : Fragment() {
         binding.cardUzLat.setOnClickListener {
             Toast.makeText(view.context, "card  uz lat", Toast.LENGTH_SHORT).show()
             prefs.edit().putString("til", "CcyNm_UZ").apply()
-            til=prefs.getString("til","CcyNm_UZ").toString()
+            til = prefs.getString("til", "CcyNm_UZ").toString()
             setChange()
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
         }
         binding.cardEng.setOnClickListener {
             Toast.makeText(view.context, "card eng", Toast.LENGTH_SHORT).show()
             prefs.edit().putString("til", "CcyNm_EN").apply()
-            til=prefs.getString("til","CcyNm_EN").toString()
+            til = prefs.getString("til", "CcyNm_EN").toString()
             setChange()
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
         }
         binding.cardRu.setOnClickListener {
             Toast.makeText(view.context, "card rus", Toast.LENGTH_SHORT).show()
             prefs.edit().putString("til", "CcyNm_RU").apply()
-            til=prefs.getString("til","CcyNm_RU").toString()
+            til = prefs.getString("til", "CcyNm_RU").toString()
             setChange()
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
         }
         binding.cardUzKir.setOnClickListener {
             Toast.makeText(view.context, "card uz kiril", Toast.LENGTH_SHORT).show()
             prefs.edit().putString("til", "CcyNm_UZC").apply()
-            til=prefs.getString("til","CcyNm_UZC").toString()
+            til = prefs.getString("til", "CcyNm_UZC").toString()
             setChange()
             bottomSheet.state = BottomSheetBehavior.STATE_HIDDEN
         }
 
+
+        binding.cardJonat.setOnClickListener {
+            ShareF()
+        }
+        binding.cardBaxo.setOnClickListener {
+            PlayMarketStar()
+        }
+        binding.cardGmail.setOnClickListener {
+            ali()
+        }
+
     }
+
+    fun ShareF() {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, getString(R.string.shareApp))
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+    }
+
+    fun PlayMarketStar() {
+        var intent = Intent(Intent.ACTION_VIEW)
+        // baholash google playda
+        intent.setData(Uri.parse(getString(R.string.urlPlayApp)))
+        startActivity(intent)
+    }
+
+    fun ali(){
+        val emailIntent =
+            Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"))
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "body")
+        startActivity(Intent.createChooser(emailIntent, "Chooser Title"))
+    }
+
+
+
 
     private fun setChange() {
         if (til.equals("CcyNm_UZ")) {
+
+
             binding.toolbarNastroyka.title = "Sozlamalar"
             binding.txtAsosiy.text = "Asosiy"
             binding.txtQoshimcha.text = "Qoshimcha"
             binding.txtTema.text = "Tema"
             binding.txtTil.text = "Til"
+            binding.txtGmail.text = "Yozish"
+            binding.txtBaxo.text = "Baxolash"
+            binding.txtJonat.text = "Ulashish"
             binding.txtTill.text = binding.txtUzLat.text.toString()
             if (tema.equals("kun")) {
                 binding.txtTemaa.text = "kundizgi tema"
@@ -148,6 +190,9 @@ class NastroykaFragment : Fragment() {
             binding.txtQoshimcha.text = "Кошимча"
             binding.txtTema.text = "тема"
             binding.txtTil.text = "тил"
+            binding.txtGmail.text = "Написать"
+            binding.txtBaxo.text = "Бахолаш"
+            binding.txtJonat.text = "Юбор"
             binding.txtTill.text = binding.txtUzKir.text.toString()
             if (tema.equals("kun")) {
                 binding.txtTemaa.text = "кундизги тема"
@@ -160,6 +205,9 @@ class NastroykaFragment : Fragment() {
             binding.txtQoshimcha.text = "Дополнително"
             binding.txtTema.text = "тема"
             binding.txtTil.text = "язик"
+            binding.txtGmail.text = "Написать"
+            binding.txtBaxo.text = "Отценить"
+            binding.txtJonat.text = "Подделит"
             binding.txtTill.text = binding.txtRu.text.toString()
             if (tema.equals("kun")) {
                 binding.txtTemaa.text = "светлий тема"
@@ -172,6 +220,9 @@ class NastroykaFragment : Fragment() {
             binding.txtQoshimcha.text = "Aditonial"
             binding.txtTema.text = "theme"
             binding.txtTil.text = "language"
+            binding.txtGmail.text = "Wride"
+            binding.txtBaxo.text = "Baxo eng"
+            binding.txtJonat.text = "Share"
             binding.txtTill.text = binding.txtEn.text.toString()
             if (tema.equals("kun")) {
                 binding.txtTemaa.text = "day theme"
@@ -180,8 +231,6 @@ class NastroykaFragment : Fragment() {
             }
         }
     }
-
-
 
 
     private fun getSheet(view: View) {

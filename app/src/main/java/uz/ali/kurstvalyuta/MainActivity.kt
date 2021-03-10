@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import uz.ali.kurstvalyuta.Interface.getChange
 import uz.ali.kurstvalyuta.ModelServer.DataModel
 import uz.ali.kurstvalyuta.network.ApiService
 import uz.ali.kurstvalyuta.network.NetworkConnection
@@ -70,6 +71,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
+
         //       list= arrayListOf()
         navController = Navigation.findNavController(this, R.id.frag_oyna)
         bottomNavigationView = findViewById(R.id.Bottom_Menu)
@@ -82,7 +86,7 @@ class MainActivity : AppCompatActivity() {
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener OnNavigationItemSelectedListener@{
-            Toast.makeText(this,"Alibek saymov",Toast.LENGTH_SHORT).show()
+
             when (it.itemId) {
                 R.id.page_1 -> {
 
@@ -103,6 +107,12 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.page_4 -> {
+
+
+
+
+
+
                     navController.navigate(R.id.nastroykaFragment)
                     return@OnNavigationItemSelectedListener true
                 }
@@ -112,5 +122,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
 }
