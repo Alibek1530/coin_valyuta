@@ -21,7 +21,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import uz.ali.kurstvalyuta.ModelServer.DataModel2
 import uz.ali.kurstvalyuta.ModelServer.DataModelDate
-import uz.ali.kurstvalyuta.ModelServer.DataModelItem
 import uz.ali.kurstvalyuta.ModelServer.DataModelItem2
 import uz.ali.kurstvalyuta.R
 import uz.ali.kurstvalyuta.adapters.AdaprerHomeCon
@@ -54,7 +53,7 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
     lateinit var TxtSum: TextView
     lateinit var ImageReplase: ImageView
 
-    lateinit var toolbar: Toolbar
+    lateinit var toolbarCon: Toolbar
 
     lateinit var til: String
     lateinit var sum: String
@@ -68,14 +67,13 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        toolbar = view.findViewById(R.id.toolbar_con)
+        toolbarCon = view.findViewById(R.id.toolbar_con)
         api = NetworkConnection.getInstance().getApiClient()
         roomDao = AppDatabase.getInstance()!!
 
         // prefs = activity?.getPreferences(Context.MODE_PRIVATE)
-        prefs =
-            PreferenceManager.getDefaultSharedPreferences(context)
-        til = prefs.getString("til", "CcyNm_UZ").toString()
+        prefs = view.context.getSharedPreferences("app", Context.MODE_PRIVATE)
+        til = prefs.getString("til", "uz").toString()
 
         recyclerView = view.findViewById(R.id.RecyclerViewCon)
         EditTxt = view.findViewById(R.id.edit_txt)
@@ -91,24 +89,24 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
         rubNomi = arguments?.getString("rubnomi").toString()
         var date = dat?.let { getDateFarmat(it) }
 
-        toolbar.title = rubNomi
+        toolbarCon.title = rubNomi
 
         EditTxt.setText("1")
         TxtSum.text = rubQiymat
         TxtRub.text = rubNomi
         if (tekshir) {
-            TxtRub.text = setChange()
+            TxtRub.text = getString(R.string.uzbeksom)
             TxtnaSum.text = rubNomi
         } else {
-            TxtnaSum.text = setChange()
+            TxtnaSum.text = getString(R.string.uzbeksom)
             TxtRub.text = rubNomi
         }
         ImageReplase.setOnClickListener {
             if (!tekshir) {
-                TxtRub.text = setChange()
+                TxtRub.text = getString(R.string.uzbeksom)
                 TxtnaSum.text = rubNomi
             } else {
-                TxtnaSum.text = setChange()
+                TxtnaSum.text = getString(R.string.uzbeksom)
                 TxtRub.text = rubNomi
             }
             EditTxt.setText("0")
@@ -259,39 +257,23 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
         var year = date.substring(6..9)
 
         var dayRet = year + "-" + moon + "-" + day
-        Log.d("key", "key false  " + moon)
-        Log.d("key", "key false  " + day)
-        Log.d("key", "key false  " + year)
+
         return dayRet
     }
 
-    private fun getRub(pos: Int): String {
-        var temp = ""
-        if (til.equals("CcyNm_UZ")) {
-            temp = list.get(pos).CcyNm_UZ
-        } else if (til.equals("CcyNm_UZC")) {
-            temp = list.get(pos).CcyNm_UZC
-        } else if (til.equals("CcyNm_RU")) {
-            temp = list.get(pos).CcyNm_RU
-        } else if (til.equals("CcyNm_EN")) {
-            temp = list.get(pos).CcyNm_EN
-        }
-        return temp
-    }
-
-    private fun setChange(): String {
-        var temp = ""
-        if (til.equals("CcyNm_UZ")) {
-            temp = "Ozbek so'm"
-        } else if (til.equals("CcyNm_UZC")) {
-            temp = "Узбек сум"
-        } else if (til.equals("CcyNm_RU")) {
-            temp = "Узбек сум сум"
-        } else if (til.equals("CcyNm_EN")) {
-            temp = "Uzbek som"
-        }
-        return temp
-    }
+//    private fun setChange(): String {
+//        var temp = ""
+//        if (til.equals("CcyNm_UZ")) {
+//            temp = "Ozbek so'm"
+//        } else if (til.equals("CcyNm_UZC")) {
+//            temp = "Узбек сум"
+//        } else if (til.equals("CcyNm_RU")) {
+//            temp = "Узбек сум сум"
+//        } else if (til.equals("CcyNm_EN")) {
+//            temp = "Uzbek som"
+//        }
+//        return temp
+//    }
 
     override fun onStop() {
         super.onStop()

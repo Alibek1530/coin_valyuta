@@ -2,6 +2,7 @@ package uz.ali.kurstvalyuta.utils
 
 import android.content.Context
 import android.os.Build
+import androidx.core.app.ActivityCompat.recreate
 import java.util.*
 
 object RuntimeLocaleChanger {

@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KursValyuta</string>
+    <string name="app_name">Курс валюта</string>
     <string name="home">главний</string>
     <string name="kalendar">календар</string>
     <string name="statistika">статистика</string>
-    <string name="nastroyka">настройка</string>
+
+    <string name="izlash">Название или код валюты</string>
+    <string name="uzbeksom">Узбекский сум</string>
+
+    <string name="som">\ сум</string>
+
+    <string name="hello">Привет Алибек, </string>
+    <string name="versiya">Версия 1.0</string>
+    <string name="dastur_haqida">Dastir haqida</string>
+    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan</string>Copyright
+
+    <string name="nastroyka">Настройки</string>
+    <string name="asosiy">Основные</string>
+    <string name="theme">Тема</string>
+    <string name="tema_tun">Тёмная</string>
+    <string name="tema_kun">Светлая</string>
+    <string name="til_usti">Язык</string>
+    <string name="til">Русский</string>
+    <string name="qoshimcha">Дополнительные</string>
+    <string name="gmail">Написать нам</string>
+    <string name="baxo">Оценить приложение</string>
+    <string name="share">Поделиться приложение</string>
 
 
     <string name="shareApp">Эта программа интересна и бесплатна для проведения свободного времени :)

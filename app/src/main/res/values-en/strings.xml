@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KursValyuta</string>
+    <string name="app_name">Kurs Valyuta en</string>
 
-    <string name="home">home</string>
-    <string name="kalendar">calendar</string>
-    <string name="statistika">statistika</string>
-    <string name="nastroyka">setting</string>
+    <string name="home">Home</string>
+    <string name="kalendar">Calendar</string>
+    <string name="statistika">Statistika</string>
+    <string name="nastroyka">Settings</string>
+
+    <string name="izlash">Currency name or code</string>
+    <string name="uzbeksom">Uzbek sum</string>
+
+    <string name="som">\ sum</string>
+
+    <string name="hello">Hi Alibek, </string>
+    <string name="versiya">Версия 1.0</string>
+    <string name="dastur_haqida">Dastir haqida</string>
+    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan</string>Copyright
+
+    <string name="asosiy">Main</string>
+    <string name="theme">Theme</string>
+    <string name="tema_tun">Dark</string>
+    <string name="tema_kun">Light</string>
+    <string name="til_usti">Language</string>
+    <string name="til">English</string>
+    <string name="qoshimcha">Additional</string>
+    <string name="gmail">Contact us</string>
+    <string name="baxo">Rate the app</string>
+    <string name="share">Share the app</string>
+
 
     <string name="shareApp">andliyskiy
         https://play.google.com/store/apps/details?id=com.ali.filmgokino

@@ -8,8 +8,8 @@ class StockPreference(val context: Context) {
     private val mode = MODE_PRIVATE
 
     var lang: String
-        get() = context.getSharedPreferences("app", mode).getString("lang", "uz") ?: "uz"
+        get() = context.getSharedPreferences("app", mode).getString("til", "uz") ?: "uz"
         set(value) {
-            context.getSharedPreferences("app", mode).edit().putString("lang", value).apply()
+            context.getSharedPreferences("app", mode).edit().putString("til", value).apply()
         }
 }

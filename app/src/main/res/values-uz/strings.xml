@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KursValyuta</string>
+    <string name="app_name">Kurs Valyuta uz</string>
 
     <string name="home">Asosiy</string>
     <string name="kalendar">Kalendar</string>
     <string name="statistika">Diagramma</string>
-    <string name="nastroyka">Sozlama</string>
+
+    <string name="izlash">Nomi yoki davlat kodi</string>
+    <string name="uzbeksom">O\'zbek so\'mi</string>
+
+    <string name="som">\ so\'m</string>
+
+    <string name="hello">Salom Alibek, </string>
+    <string name="versiya">Версия 1.0</string>
+    <string name="dastur_haqida">Dastir haqida</string>
+    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan</string>Copyright
+
+    <string name="nastroyka">Sozlamalar</string>
+    <string name="asosiy">Asosiy</string>
+    <string name="theme">Ko\'rinish</string>
+    <string name="tema_tun">Toq rang</string>
+    <string name="tema_kun">Och rang</string>
+    <string name="til_usti">Til</string>
+    <string name="til">O\'zbek</string>
+    <string name="qoshimcha">Qo\'shimcha</string>
+    <string name="gmail">Biz bilan bog\'laning</string>
+    <string name="baxo">Ilovani baholang</string>
+    <string name="share">Ilovani ulashing</string>
+
+
+
+
 
     <string name="shareApp">Bvdfbdfb :)
         https://play.google.com/store/apps/details?id=com.ali.filmgokino

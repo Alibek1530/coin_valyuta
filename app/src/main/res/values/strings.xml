@@ -1,9 +1,38 @@
 <resources>
-    <string name="app_name">KursValyuta</string>
+    <string name="app_name">Kurs Valyuta</string>
     <string name="home">home</string>
     <string name="kalendar">kalendar</string>
     <string name="statistika">statistika</string>
-    <string name="nastroyka">nastroyka</string>
+
+
+    <string name="nastroyka">Sozlamalar</string>
+    <string name="asosiy">Asosiy</string>
+    <string name="theme">Ko\'rinish</string>
+    <string name="tema_tun">Toq rang</string>
+    <string name="tema_kun">Och rang</string>
+    <string name="til_usti">Til</string>
+    <string name="til">O\'zbek</string>
+    <string name="qoshimcha">Qo\'shimcha</string>
+    <string name="gmail">Biz bilan bog\'laning</string>
+    <string name="baxo">Ilovani baholang</string>
+    <string name="share">Ilovani ulashing</string>
+
+    <string name="izlash">Nomi yoki davlat kodi</string>
+
+    <string name="uzbeksom">O\'zbek so\'mi</string>
+    <string name="som">\ so\'m</string>
+
+    <string name="hello">Salom Alibek, </string>
+    <string name="versiya">Версия 1.0</string>
+    <string name="dastur_haqida">Dastir haqida</string>
+    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan</string>Copyright
+    <string name="copyright" translatable="false">Copyright © 2021 Saymov Alibek</string>
+
+    <string name="uz" translatable="false">O\'zbek</string>
+    <string name="ru" translatable="false">Русский</string>
+    <string name="en" translatable="false">English</string>
+    <string name="uz_ru" translatable="false">Узбек</string>
+
 
 
     <string name="shareApp">Bu default :)

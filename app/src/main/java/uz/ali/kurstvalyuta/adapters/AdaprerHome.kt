@@ -1,5 +1,6 @@
 package uz.ali.kurstvalyuta.adapters
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.util.Log
@@ -20,12 +21,10 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
     var map: MutableMap<String, Int> = HashMap()
 
     lateinit var til: String
-    lateinit var sum: String
     lateinit var prefs: SharedPreferences
 
     init {
-        prefs = PreferenceManager.getDefaultSharedPreferences(mContext.context)
-        til = prefs.getString("til", "CcyNm_UZ").toString()
+
         map["784"] = R.drawable.ae
         map["971"] = R.drawable.af
         map["051"] = R.drawable.am
@@ -117,6 +116,8 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         //inflate your layout and pass it to view holder
+        prefs = parent.context.getSharedPreferences("app", Context.MODE_PRIVATE)
+        til = prefs.getString("til", "uz").toString()
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_home, parent, false)
         return MyViewHolder(v, mContext)
     }
@@ -156,7 +157,7 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
             }
             HomeTitle.text = setChange(model)
 
-            HomeTextSom.text = model.Rate + sum
+            HomeTextSom.text = model.Rate + main.getString(R.string.som)
 
             if (!model.Diff.equals("")) {
                 if (model.Diff.toFloat() > 0) {
@@ -184,17 +185,13 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
 
     private fun setChange(model: DataModelItem): String {
         var temp = ""
-        if (til.equals("CcyNm_UZ")) {
-            sum = " so'm"
+        if (til.equals("uz")) {
             temp = model.CcyNm_UZ
-        } else if (til.equals("CcyNm_UZC")) {
-            sum = " сум"
+        } else if (til.equals("kz")) {
             temp = model.CcyNm_UZC
-        } else if (til.equals("CcyNm_RU")) {
-            sum = " сум"
+        } else if (til.equals("ru")) {
             temp = model.CcyNm_RU
-        } else if (til.equals("CcyNm_EN")) {
-            sum = " som"
+        } else if (til.equals("en")) {
             temp = model.CcyNm_EN
         }
         return temp

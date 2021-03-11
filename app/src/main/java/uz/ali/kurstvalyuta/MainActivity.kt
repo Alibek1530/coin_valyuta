@@ -1,5 +1,6 @@
 package uz.ali.kurstvalyuta
 
+import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -57,8 +58,9 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        RuntimeLocaleChanger.getLocale(this)
+        prefs= getSharedPreferences("app", Context.MODE_PRIVATE)
+
+        RuntimeLocaleChanger.setLocale(this)
         if (prefs.getString("tema", "kun").equals("kun")) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             prefs.edit().putString("tema", "kun").apply()

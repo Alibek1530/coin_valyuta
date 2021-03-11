@@ -1,5 +1,6 @@
 package uz.ali.kurstvalyuta.adapters
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.view.LayoutInflater
@@ -20,9 +21,7 @@ class AdaprerCalendar(var dataVertical: List<DataModelItem>) :
     lateinit var til: String
     lateinit var sum: String
 
-init {
 
-}
 
     override fun getItemCount(): Int {
         return dataVertical.size
@@ -38,8 +37,8 @@ init {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         //inflate your layout and pass it to view holder
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_calendar, parent, false)
-        prefs = PreferenceManager.getDefaultSharedPreferences(v.context)
-        til = prefs.getString("til", "CcyNm_UZ").toString()
+        prefs = parent.context.getSharedPreferences("app", Context.MODE_PRIVATE)
+        til = prefs.getString("til", "uz").toString()
         return MyViewHolder(v)
     }
 
@@ -76,17 +75,17 @@ init {
     }
     private fun setChange(model: DataModelItem): String {
         var temp = ""
-        if (til.equals("CcyNm_UZ")) {
+        if (til.equals("uz")) {
             sum = " so'm"
             temp = model.CcyNm_UZ
-        } else if (til.equals("CcyNm_UZC")) {
-            sum = " сум"
+        } else if (til.equals("kz")) {
+            sum = "  сўм"
             temp = model.CcyNm_UZC
-        } else if (til.equals("CcyNm_RU")) {
+        } else if (til.equals("ru")) {
             sum = " сум"
             temp = model.CcyNm_RU
-        } else if (til.equals("CcyNm_EN")) {
-            sum = " som"
+        } else if (til.equals("en")) {
+            sum = " sum"
             temp = model.CcyNm_EN
         }
         return temp

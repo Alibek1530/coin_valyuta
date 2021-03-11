@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import uz.ali.kurstvalyuta.ModelServer.DataModelItem
 import uz.ali.kurstvalyuta.ModelServer.DataModelItem2
 import uz.ali.kurstvalyuta.R
 import uz.ali.kurstvalyuta.home.conves.ConvetorFragment
@@ -39,8 +40,9 @@ class AdaprerHomeCon(var dataVertical: List<DataModelItem2>, var mContext: Conve
 
 
         fun bind(model: DataModelItem2) {
+
             HomeTitle.text = model.Date
-            HomeTextSom.text = model.Rate + " so'm"
+            HomeTextSom.text = model.Rate +  main.getString(R.string.som)
             if (!model.Diff.equals("")) {
                 if (model.Diff.toFloat() > 0) {
                     HomeFlagPlus.setImageResource(R.drawable.ic_baseline_plus)

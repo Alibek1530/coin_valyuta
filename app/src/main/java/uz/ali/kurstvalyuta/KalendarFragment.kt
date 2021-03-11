@@ -33,7 +33,6 @@ import java.util.*
 class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
     lateinit var api: ApiService
     lateinit var recyclerView: RecyclerView
-    lateinit var tv_click_me: TextView
 
     lateinit var list: List<DataModelItem>
     lateinit var frameLayout: FrameLayout
