@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Kurs Valyuta</string>
-    <string name="home">home</string>
-    <string name="kalendar">kalendar</string>
-    <string name="statistika">statistika</string>
+    <string name="home">Bosh sahifa</string>
+    <string name="kalendar">Kalendar</string>
+    <string name="statistika">Statistika</string>
 
 
     <string name="nastroyka">Sozlamalar</string>
@@ -22,17 +22,23 @@
     <string name="uzbeksom">O\'zbek so\'mi</string>
     <string name="som">\ so\'m</string>
 
+    <string name="netOff">Internetga ulanmagan</string>
+
+
+    <string name="yana_bosing">Dasturdan chiqish uchun yana bir marta bosing.</string>
+
+
     <string name="hello">Salom Alibek, </string>
-    <string name="versiya">Версия 1.0</string>
+    <string name="versiya">Versiya 1.0</string>
     <string name="dastur_haqida">Dastir haqida</string>
-    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan</string>Copyright
+    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan edf</string>
+    Copyright
     <string name="copyright" translatable="false">Copyright © 2021 Saymov Alibek</string>
 
     <string name="uz" translatable="false">O\'zbek</string>
     <string name="ru" translatable="false">Русский</string>
     <string name="en" translatable="false">English</string>
     <string name="uz_ru" translatable="false">Узбек</string>
-
 
 
     <string name="shareApp">Bu default :)
@@ -44,12 +50,8 @@
         https://play.google.com/store/apps/details?id=com.ali.filmgokino
     </string>
     <string name="urlGmail" translatable="false">saymovalibek1530@gmail.com</string>
-    
-    
-    
-    
-    
-    
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="query_suggestions">

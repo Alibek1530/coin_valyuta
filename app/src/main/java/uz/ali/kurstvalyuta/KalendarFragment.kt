@@ -1,6 +1,8 @@
 package uz.ali.kurstvalyuta
 
+import android.content.Context
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
@@ -26,6 +28,8 @@ import uz.ali.kurstvalyuta.ModelServer.DataModelItem
 import uz.ali.kurstvalyuta.adapters.AdaprerCalendar
 import uz.ali.kurstvalyuta.network.ApiService
 import uz.ali.kurstvalyuta.network.NetworkConnection
+import uz.ali.kurstvalyuta.room.AppDatabase
+import uz.ali.kurstvalyuta.room.UserDao
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -39,28 +43,26 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
     lateinit var calendar: Calendar
     lateinit var toolbarCalendar: Toolbar
 
-
+    lateinit var roomDao: UserDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        roomDao = AppDatabase.getInstance()!!
         Toast.makeText(this.context, "bek", Toast.LENGTH_SHORT).show()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-
-//        val prefs = PreferenceManager.getDefaultSharedPreferences(view.context)
-//        if (prefs.getString("key","kun").equals("kun")){
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//        }else{
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-//        }
-
-
-
+        api = NetworkConnection.getInstance().getApiClient()
+        Toast.makeText(view?.context, "ali", Toast.LENGTH_SHORT).show()
+        recyclerView = view.findViewById(R.id.RecyclerKalendar)
+        toolbarCalendar = view.findViewById(R.id.toolbar_kalendar)
+        if (!NetworkOn()){
+            Toast.makeText(view.context,getString(R.string.netOff),Toast.LENGTH_SHORT).show()
+        }
+        getListDav(roomDao.getDayAllDavlat())
 
         frameLayout = view.findViewById<FrameLayout>(R.id.sheet)
-        toolbarCalendar = view.findViewById(R.id.toolbar_kalendar)
+
         //   frameLayout=FrameLayout(view.context)
         calendar = Calendar.getInstance()
         BottomSheetBehavior.from(frameLayout).apply {
@@ -78,49 +80,23 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
             } else {
                 mon = (month + 1).toString()
             }
-            setApi("$year-$mon-$dayOfMonth")
-            toolbarCalendar.title = "$year-$mon-$dayOfMonth"
+            if (NetworkOn()) {
+                setApi("$year-$mon-$dayOfMonth")
+            } else {
+                Toast.makeText(view.context, getString(R.string.netOff), Toast.LENGTH_SHORT).show()
+            }
+
+          //  toolbarCalendar.title = "$year-$mon-$dayOfMonth"
         }
-        api = NetworkConnection.getInstance().getApiClient()
-        Toast.makeText(view?.context, "ali", Toast.LENGTH_SHORT).show()
-        recyclerView = view.findViewById(R.id.RecyclerKalendar)
 
 
 
-
-//             list = arrayListOf()
-//          tv_click_me = view.findViewById(R.id.tv_click_me)
-//
-//            tv_click_me.setOnClickListener {
-//            var bottomSheetDialog = BottomSheetDialog(view.context)
-//            var sheetView =
-//                LayoutInflater.from(view.context).inflate(R.layout.bottom_sheet_share, null)
-//           // var calendar = sheetView.findViewById<CalendarView>(R.id.kalendarView)
-//            bottomSheetDialog.setContentView(sheetView)
-//            bottomSheetDialog.show()
-//
-//
-//            calendar.setOnDateChangeListener { view, year, month, dayOfMonth ->
-//                Log.d("tt", "getDate:cdscdscdscdscsdcsd  " + year)
-//                var mon: String
-//                if (month < 10) {
-//                    mon = "0" + (month + 1)
-//                } else {
-//                    mon = (month + 1).toString()
-//                }
-//                bottomSheetDialog.dismiss()
-//                setApi("$year-$mon-$dayOfMonth")
-//            }
     }
-//    //   }
-//
-
-
 
     fun getListDav(list: List<DataModelItem>) {
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
         recyclerView.adapter = AdaprerCalendar(list)
-
+        toolbarCalendar.title = list.get(0).Date
     }
 
     fun setApi(date: String) {
@@ -136,6 +112,16 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
 
             }
         })
+    }
+
+    fun NetworkOn(): Boolean {
+//        var cm = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+//        var isMetered = cm.isActiveNetworkMetered
+//        //   Toast.makeText(view?.context, "mm   " + isMetered, Toast.LENGTH_SHORT).show()
+//        return isMetered
+        val cm = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+        val netInfo = cm!!.activeNetworkInfo
+        return netInfo != null && netInfo.isConnectedOrConnecting
     }
 
 }

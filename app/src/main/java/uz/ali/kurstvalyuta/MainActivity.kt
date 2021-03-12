@@ -2,18 +2,16 @@ package uz.ali.kurstvalyuta
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import uz.ali.kurstvalyuta.Interface.getChange
 import uz.ali.kurstvalyuta.ModelServer.DataModel
 import uz.ali.kurstvalyuta.network.ApiService
 import uz.ali.kurstvalyuta.network.NetworkConnection
@@ -24,41 +22,13 @@ import uz.ali.kurstvalyuta.utils.RuntimeLocaleChanger
 class MainActivity : AppCompatActivity() {
     lateinit var navController: NavController
     lateinit var bottomNavigationView: BottomNavigationView
-    lateinit var api: ApiService
-    lateinit var roomDao: UserDao
 
-    //lateinit var list:ArrayList<DataModel>
     lateinit var prefs: SharedPreferences
-
-    fun aa() {
-
-//commit new
-        roomDao = AppDatabase.getInstance()!!
-        api = NetworkConnection.getInstance().getApiClient()
-
-        api.getHomeListAllFinishDay().enqueue(object : Callback<DataModel> {
-
-            override fun onResponse(call: Call<DataModel>, response: Response<DataModel>) {
-                if (response.isSuccessful && response.code() == 200) {
-                    roomDao?.insert(response.body())
-//                    var a=response.body()!!
-//                    list.addAll(listOf(a))
-                    //  list.add(response.body()!!)
-//                    Toast.makeText(this@MainActivity, "" + response.body(), Toast.LENGTH_SHORT)
-//                        .show()
-                }
-            }
-
-            override fun onFailure(call: Call<DataModel>, t: Throwable) {
-
-            }
-
-        })
-    }
+    var counter = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        prefs= getSharedPreferences("app", Context.MODE_PRIVATE)
+        prefs = getSharedPreferences("app", Context.MODE_PRIVATE)
 
         RuntimeLocaleChanger.setLocale(this)
         if (prefs.getString("tema", "kun").equals("kun")) {
@@ -69,50 +39,58 @@ class MainActivity : AppCompatActivity() {
             prefs.edit().putString("tema", "tun").apply()
         }
 
-
-
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        //       list= arrayListOf()
-        navController = Navigation.findNavController(this, R.id.frag_oyna)
+        navController = findNavController(R.id.frag_oyna)
         bottomNavigationView = findViewById(R.id.Bottom_Menu)
-
-        aa()
-
-        //  roomDao?.insert(list)
-        //    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        //  setTheme(R.style.Theme_MaterialComponents_DayNight_DarkActionBar)
-
-
         bottomNavigationView.setOnNavigationItemSelectedListener OnNavigationItemSelectedListener@{
 
             when (it.itemId) {
                 R.id.page_1 -> {
-
+                    navController.popBackStack()
                     navController.navigate(R.id.homeFragment)
-                    return@OnNavigationItemSelectedListener true
 
+                    var q = prefs.getBoolean("back", false)
+                    if (q) {
+                        navController.popBackStack()
+                        prefs.edit().putBoolean("back", false).apply()
+                    }
+                    return@OnNavigationItemSelectedListener true
                 }
                 R.id.page_2 -> {
+                    navController.popBackStack()
                     navController.navigate(R.id.kalendarFragment)
-                    return@OnNavigationItemSelectedListener true
 
+                    var q = prefs.getBoolean("back", false)
+                    if (q) {
+                        prefs.edit().putBoolean("back", false).apply()
+                        super.onBackPressed()
+                    }
+                    return@OnNavigationItemSelectedListener true
                 }
                 R.id.page_3 -> {
-
-
+                    navController.popBackStack()
                     navController.navigate(R.id.statistikaFragment)
-                    return@OnNavigationItemSelectedListener true
 
+                    var q = prefs.getBoolean("back", false)
+                    if (q) {
+                        prefs.edit().putBoolean("back", false).apply()
+                        super.onBackPressed()
+                    } else {
+
+                    }
+                    return@OnNavigationItemSelectedListener true
                 }
                 R.id.page_4 -> {
-
-
+                    navController.popBackStack()
                     navController.navigate(R.id.nastroykaFragment)
+
+                    var q = prefs.getBoolean("back", false)
+                    if (q) {
+                        prefs.edit().putBoolean("back", false).apply()
+                        super.onBackPressed()
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
                 else -> {
@@ -122,5 +100,29 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        var q = prefs.getBoolean("back", false)
+        if (q) {
+            prefs.edit().putBoolean("back", false).apply()
+            super.onBackPressed()
+        } else {
+            counter++
+            if (counter > 1) {
+                super.onBackPressed()
+            } else {
+                Toast.makeText(this, "${getString(R.string.yana_bosing)}", Toast.LENGTH_SHORT)
+                    .show()
+            }
+            val DELAY_TIME = 3000L
+            Thread(Runnable {
+                try {
+                    Thread.sleep(DELAY_TIME)
+                    counter = 0
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+            }).start()
+        }
+    }
 
 }

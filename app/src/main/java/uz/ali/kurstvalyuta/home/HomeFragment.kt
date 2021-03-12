@@ -3,6 +3,7 @@ package uz.ali.kurstvalyuta.home
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -11,9 +12,13 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import uz.ali.kurstvalyuta.Interface.Data
@@ -43,48 +48,19 @@ class HomeFragment : Fragment(R.layout.fragment_home), Data, SearchView.OnQueryT
         setHasOptionsMenu(true)
         roomDao = AppDatabase.getInstance()!!
 
-//        navController = Navigation.findNavController(context as Activity, R.id.frag_oyna)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         prefs = view.context.getSharedPreferences("app", Context.MODE_PRIVATE)
+
         til = prefs.getString("til", "uz").toString()
         toolbarHome = view.findViewById(R.id.toolbar_home)
         toolbarHome.inflateMenu(R.menu.menu_top)
         toolbarHome.title=getString(R.string.app_name)
         (activity as AppCompatActivity?)!!.setSupportActionBar(toolbarHome)
-        //       val prefs = PreferenceManager.getDefaultSharedPreferences(view?.context)
 
-//        if (prefs.getString("key","tun").equals("tun")){
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-//        }else{
-//            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//        }
         navController = Navigation.findNavController(context as Activity, R.id.frag_oyna)
-//        var menu=toolbar.menu
-//      var search=  menu.getItem(R.id.app_bar_search)
-//        search.setOnMenuItemClickListener {
-//
-//        }
-//        toolbar.setOnMenuItemClickListener {
-//
-//        }
-        //     Search = view.findViewById(R.id.searchView)
-//        Search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                Log.d("i", "que: " + query)
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                var searchList = getSearchList(newText.toString())
-//                recyclerView.adapter = AdaprerHome(searchList, this@HomeFragment)
-//                recyclerView.adapter?.notifyDataSetChanged()
-//                Log.d("i", "new: " + newText)
-//                return false
-//            }
-//        })
 
 
         recyclerView = view.findViewById(R.id.RecyclerView)
@@ -115,6 +91,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), Data, SearchView.OnQueryT
         args.putString("rubnomi", temp)
         arguments = args
         Toast.makeText(view?.context, "" + pos, Toast.LENGTH_SHORT).show()
+        //navController = findNavController()
         navController.navigate(R.id.convetorFragment, arguments)
     }
 
@@ -123,6 +100,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), Data, SearchView.OnQueryT
         val searchItem = menu.findItem(R.id.app_bar_search)
        val searchView = searchItem.actionView as SearchView
         searchView.queryHint = getString(R.string.izlash)
+
         searchView.setOnQueryTextListener(this)
         // searchView.isIconified = false
     }
@@ -152,5 +130,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), Data, SearchView.OnQueryT
         }
         return temp
     }
+
 
 }

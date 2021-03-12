@@ -34,7 +34,7 @@ class AdaprerHomeCon(var dataVertical: List<DataModelItem2>, var mContext: Conve
 
         var HomeTitle = v.findViewById<TextView>(R.id.HomeTextFlag)
         var HomeTextSom = v.findViewById<TextView>(R.id.HomeTextSom)
-        var HomeTitlePlus = v.findViewById<TextView>(R.id.HomeTextSomPlus)
+      //  var HomeTitlePlus = v.findViewById<TextView>(R.id.HomeTextSomPlus)
         var HomeTitleMin = v.findViewById<TextView>(R.id.HomeTextSomMinus)
         var HomeFlagPlus = v.findViewById<ImageView>(R.id.HomeImagePlus)
 
@@ -46,17 +46,18 @@ class AdaprerHomeCon(var dataVertical: List<DataModelItem2>, var mContext: Conve
             if (!model.Diff.equals("")) {
                 if (model.Diff.toFloat() > 0) {
                     HomeFlagPlus.setImageResource(R.drawable.ic_baseline_plus)
-                    HomeTitlePlus.text = model.Diff
-                    HomeTitleMin.text = ""
+//                    HomeTitlePlus.text = model.Diff
+//                    HomeTitleMin.text = ""
                 } else {
                     HomeFlagPlus.setImageResource(R.drawable.ic_baseline_minus)
-                    HomeTitleMin.text = model.Diff
-                    HomeTitlePlus.text = ""
+//                    HomeTitleMin.text = model.Diff
+//                    HomeTitlePlus.text = ""
                 }
+                HomeTitleMin.text=model.Diff
             }else{
                 HomeFlagPlus.setImageResource(R.drawable.ic_baseline_west)
-                HomeTitleMin.text = ""
-                HomeTitlePlus.text = ""
+//                HomeTitleMin.text = ""
+//                HomeTitlePlus.text = ""
             }
 
         }

@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -75,6 +76,8 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
         prefs = view.context.getSharedPreferences("app", Context.MODE_PRIVATE)
         til = prefs.getString("til", "uz").toString()
 
+        prefs.edit().putBoolean("back",true).apply()
+
         recyclerView = view.findViewById(R.id.RecyclerViewCon)
         EditTxt = view.findViewById(R.id.edit_txt)
         TxtRub = view.findViewById(R.id.text_rub)
@@ -136,6 +139,7 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
         if (NetworkOn()) {
             date?.let { aa(it) }
         } else {
+            Toast.makeText(view.context,getString(R.string.netOff),Toast.LENGTH_SHORT).show()
             list = roomDao.getDavlatAllDay(rub) as ArrayList<DataModelItem2>
         }
         setRecycler()
@@ -229,7 +233,6 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
                     getDate(temp.get(0).Date)
                 }
             }
-
         })
     }
 
@@ -260,20 +263,6 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
 
         return dayRet
     }
-
-//    private fun setChange(): String {
-//        var temp = ""
-//        if (til.equals("CcyNm_UZ")) {
-//            temp = "Ozbek so'm"
-//        } else if (til.equals("CcyNm_UZC")) {
-//            temp = "Узбек сум"
-//        } else if (til.equals("CcyNm_RU")) {
-//            temp = "Узбек сум сум"
-//        } else if (til.equals("CcyNm_EN")) {
-//            temp = "Uzbek som"
-//        }
-//        return temp
-//    }
 
     override fun onStop() {
         super.onStop()

@@ -9,17 +9,41 @@
         android:id="@+id/homeFragment"
         android:name="uz.ali.kurstvalyuta.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_kalendarFragment"
+            app:destination="@id/kalendarFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/kalendarFragment"
         android:name="uz.ali.kurstvalyuta.KalendarFragment"
         android:label="fragment_kalendar"
-        tools:layout="@layout/fragment_kalendar" />
+        tools:layout="@layout/fragment_kalendar" >
+        <action
+            android:id="@+id/action_kalendarFragment_to_statistikaFragment"
+            app:destination="@id/statistikaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/statistikaFragment"
         android:name="uz.ali.kurstvalyuta.StatistikaFragment"
         android:label="fragment_statistika"
-        tools:layout="@layout/fragment_statistika" />
+        tools:layout="@layout/fragment_statistika" >
+        <action
+            android:id="@+id/action_statistikaFragment_to_nastroykaFragment"
+            app:destination="@id/nastroykaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
     <fragment
         android:id="@+id/nastroykaFragment"
         android:name="uz.ali.kurstvalyuta.NastroykaFragment"
@@ -30,5 +54,14 @@
         android:name="uz.ali.kurstvalyuta.home.conves.ConvetorFragment"
         android:label="fragment_convetor"
         tools:layout="@layout/fragment_convetor" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="uz.ali.kurstvalyuta.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 </navigation>

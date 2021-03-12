@@ -56,7 +56,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_edit"
+                android:background="@drawable/shape_btn_nas"
                 android:padding="4dp">
             <TextView
                 android:id="@+id/txt_tema"
@@ -101,7 +101,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_edit"
+                android:background="@drawable/shape_btn_nas"
                 android:padding="4dp">
                 <TextView
                     android:id="@+id/txt_til"
@@ -146,7 +146,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_edit"
+                android:background="@drawable/shape_btn_nas"
                 android:padding="4dp">
                 <TextView
                     android:id="@+id/txt_mal"
@@ -206,7 +206,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_edit"
+                android:background="@drawable/shape_btn_nas"
                 android:padding="4dp">
                 <TextView
                     android:id="@+id/txt_gmail"
@@ -245,7 +245,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
-                android:background="@drawable/shape_edit"
+                android:background="@drawable/shape_btn_nas"
                 android:padding="4dp">
                 <TextView
                     android:id="@+id/txt_baxo"
@@ -282,7 +282,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_edit"
+                android:background="@drawable/shape_btn_nas"
                 android:padding="4dp">
                 <TextView
                     android:id="@+id/txt_jonat"
@@ -312,7 +312,7 @@
         android:id="@+id/sheet_nastroyka"
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:visibility="gone"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:background="@drawable/shape_sheep"
@@ -540,7 +540,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:orientation="vertical"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/image">
@@ -549,9 +549,8 @@
                 android:id="@+id/DialogImage"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:layout_marginTop="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:src="@drawable/ic_baxo"
+                android:src="@drawable/fon"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
             <TextView
@@ -561,7 +560,7 @@
                 android:text="@string/app_name"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:paddingTop="8dp"
+                android:paddingTop="4dp"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"

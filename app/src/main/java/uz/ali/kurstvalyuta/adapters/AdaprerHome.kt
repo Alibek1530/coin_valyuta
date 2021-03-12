@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import uz.ali.kurstvalyuta.ModelServer.DataModelItem
 import uz.ali.kurstvalyuta.R
 import uz.ali.kurstvalyuta.home.HomeFragment
@@ -127,7 +128,7 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
         var HomeFlag = v.findViewById<ImageView>(R.id.HomeImageFlag)
         var HomeTitle = v.findViewById<TextView>(R.id.HomeTextFlag)
         var HomeTextSom = v.findViewById<TextView>(R.id.HomeTextSom)
-        var HomeTitlePlus = v.findViewById<TextView>(R.id.HomeTextSomPlus)
+      //  var HomeTitlePlus = v.findViewById<TextView>(R.id.HomeTextSomPlus)
         var HomeTitleMin = v.findViewById<TextView>(R.id.HomeTextSomMinus)
         var HomeFlagPlus = v.findViewById<ImageView>(R.id.HomeImagePlus)
 
@@ -153,7 +154,9 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
 //
 //            }
             if (a != null) {
-                HomeFlag.setImageResource(a)
+                var a=v.resources.getDrawable(a)
+                Glide.with(v.context).load(a).optionalCenterCrop().into(HomeFlag)
+             //   .setImageResource(a)
             }
             HomeTitle.text = setChange(model)
 
@@ -162,17 +165,19 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
             if (!model.Diff.equals("")) {
                 if (model.Diff.toFloat() > 0) {
                     HomeFlagPlus.setImageResource(R.drawable.ic_baseline_plus)
-                    HomeTitlePlus.text = model.Diff
-                    HomeTitleMin.text = ""
+//                    HomeTitlePlus.text = model.Diff
+//                    HomeTitleMin.text = ""
                 } else {
                     HomeFlagPlus.setImageResource(R.drawable.ic_baseline_minus)
-                    HomeTitleMin.text = model.Diff
-                    HomeTitlePlus.text = ""
+//                    HomeTitleMin.text = model.Diff
+//                    HomeTitlePlus.text = ""
                 }
+                HomeTitleMin.text=model.Diff
+
             } else {
                 HomeFlagPlus.setImageResource(R.drawable.ic_baseline_west)
-                HomeTitleMin.text = ""
-                HomeTitlePlus.text = ""
+//                HomeTitleMin.text = ""
+//                HomeTitlePlus.text = ""
             }
 
 

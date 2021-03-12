@@ -2,21 +2,25 @@
 <resources>
 
     <string name="app_name">Kurs Valyuta kz</string>
-    <string name="home">Асосий</string>
+    <string name="home">Бош сахифа</string>
     <string name="kalendar">Календар</string>
     <string name="statistika">Диаграмма</string>
+    <string name="nastroyka">Созламалар</string>
 
     <string name="izlash">Номи ёки давлат коди</string>Сўм
     <string name="uzbeksom">Узбек сўми</string>
 
     <string name="som">\ сўм</string>
 
+    <string name="netOff">Интернетга уланмаган</string>
+
+    <string name="yana_bosing">Дастурдан чикиш учун яна бир марта босинг.</string>
+
     <string name="hello">Салом Alibek, </string>
     <string name="versiya">Версия 1.0</string>
-    <string name="dastur_haqida">Dastir haqida</string>
-    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan</string>Copyright
+    <string name="dastur_haqida">Дастур хакида</string>
+    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan uz ru</string>Copyright
 
-    <string name="nastroyka">Созламалар</string>
     <string name="asosiy">Асосий</string>
     <string name="theme">Кориниш</string>
     <string name="tema_tun">Ток ранг</string>

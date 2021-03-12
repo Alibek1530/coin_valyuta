@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Kurs Valyuta uz</string>
-
-    <string name="home">Asosiy</string>
+    <string name="home">Bosh sahifa</string>
     <string name="kalendar">Kalendar</string>
-    <string name="statistika">Diagramma</string>
+    <string name="statistika">Statistika</string>
 
     <string name="izlash">Nomi yoki davlat kodi</string>
     <string name="uzbeksom">O\'zbek so\'mi</string>
 
     <string name="som">\ so\'m</string>
 
+    <string name="netOff">Internetga ulanmagan</string>
+
+    <string name="yana_bosing">Dasturdan chiqish uchun yana bir marta bosing.</string>
+
     <string name="hello">Salom Alibek, </string>
-    <string name="versiya">Версия 1.0</string>
+    <string name="versiya">Versiya 1.0</string>
     <string name="dastur_haqida">Dastir haqida</string>
-    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan</string>Copyright
+    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan uz</string>
 
     <string name="nastroyka">Sozlamalar</string>
     <string name="asosiy">Asosiy</string>

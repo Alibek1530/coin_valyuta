@@ -147,7 +147,7 @@ class NastroykaFragment() : Fragment() {
 
             bottomSheet.apply {
                 this.state = BottomSheetBehavior.STATE_COLLAPSED
-                this.peekHeight = 600
+                this.peekHeight =1500
                 this.isHideable = true
             }
         }

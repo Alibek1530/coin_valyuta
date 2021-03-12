@@ -2,9 +2,9 @@
 <resources>
     <string name="app_name">Kurs Valyuta en</string>
 
-    <string name="home">Home</string>
+    <string name="home">Main</string>
     <string name="kalendar">Calendar</string>
-    <string name="statistika">Statistika</string>
+    <string name="statistika">Statistics</string>
     <string name="nastroyka">Settings</string>
 
     <string name="izlash">Currency name or code</string>
@@ -12,10 +12,14 @@
 
     <string name="som">\ sum</string>
 
+    <string name="netOff">No internet connection</string>
+
+    <string name="yana_bosing">Press again to exit.</string>
+
     <string name="hello">Hi Alibek, </string>
-    <string name="versiya">Версия 1.0</string>
-    <string name="dastur_haqida">Dastir haqida</string>
-    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan</string>Copyright
+    <string name="versiya">Version 1.0</string>
+    <string name="dastur_haqida">About</string>
+    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan en</string>Copyright
 
     <string name="asosiy">Main</string>
     <string name="theme">Theme</string>
@@ -25,8 +29,8 @@
     <string name="til">English</string>
     <string name="qoshimcha">Additional</string>
     <string name="gmail">Contact us</string>
-    <string name="baxo">Rate the app</string>
-    <string name="share">Share the app</string>
+    <string name="baxo">Rate</string>
+    <string name="share">Share</string>
 
 
     <string name="shareApp">andliyskiy
