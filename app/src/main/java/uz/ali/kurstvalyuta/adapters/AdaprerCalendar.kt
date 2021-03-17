@@ -46,29 +46,22 @@ class AdaprerCalendar(var dataVertical: List<DataModelItem>) :
 
         var HomeTitle = v.findViewById<TextView>(R.id.HomeTextFlag1)
         var HomeTextSom = v.findViewById<TextView>(R.id.HomeTextSom1)
-        var HomeTitlePlus = v.findViewById<TextView>(R.id.HomeTextSomPlus1)
         var HomeTitleMin = v.findViewById<TextView>(R.id.HomeTextSomMinus1)
         var HomeFlagPlus = v.findViewById<ImageView>(R.id.HomeImagePlus1)
 
         fun bind(model: DataModelItem) {
-
             HomeTitle.text = setChange(model)
             HomeTextSom.text = model.Rate + sum
 
             if (!model.Diff.equals("")) {
                 if (model.Diff.toFloat() > 0) {
                     HomeFlagPlus.setImageResource(R.drawable.ic_baseline_plus)
-                    HomeTitlePlus.text = model.Diff
-                    HomeTitleMin.text = ""
                 } else {
                     HomeFlagPlus.setImageResource(R.drawable.ic_baseline_minus)
-                    HomeTitleMin.text = model.Diff
-                    HomeTitlePlus.text = ""
                 }
+                HomeTitleMin.text = model.Diff
             } else {
                 HomeFlagPlus.setImageResource(R.drawable.ic_baseline_west)
-                HomeTitleMin.text = ""
-                HomeTitlePlus.text = ""
             }
         }
 

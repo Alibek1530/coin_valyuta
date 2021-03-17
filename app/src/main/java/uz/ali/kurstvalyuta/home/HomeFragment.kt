@@ -90,7 +90,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), Data, SearchView.OnQueryT
         var temp = getRub(pos)
         args.putString("rubnomi", temp)
         arguments = args
-        Toast.makeText(view?.context, "" + pos, Toast.LENGTH_SHORT).show()
         //navController = findNavController()
         navController.navigate(R.id.convetorFragment, arguments)
     }

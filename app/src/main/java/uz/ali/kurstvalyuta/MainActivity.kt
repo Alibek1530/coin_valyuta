@@ -59,38 +59,36 @@ class MainActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.page_2 -> {
-                    navController.popBackStack()
-                    navController.navigate(R.id.kalendarFragment)
-
                     var q = prefs.getBoolean("back", false)
                     if (q) {
                         prefs.edit().putBoolean("back", false).apply()
                         super.onBackPressed()
                     }
+                    navController.popBackStack()
+                    navController.navigate(R.id.kalendarFragment)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.page_3 -> {
-                    navController.popBackStack()
-                    navController.navigate(R.id.statistikaFragment)
-
                     var q = prefs.getBoolean("back", false)
                     if (q) {
                         prefs.edit().putBoolean("back", false).apply()
                         super.onBackPressed()
-                    } else {
-
                     }
+                    navController.popBackStack()
+                    navController.navigate(R.id.statistikaFragment)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.page_4 -> {
-                    navController.popBackStack()
-                    navController.navigate(R.id.nastroykaFragment)
 
                     var q = prefs.getBoolean("back", false)
                     if (q) {
                         prefs.edit().putBoolean("back", false).apply()
                         super.onBackPressed()
                     }
+                    navController.popBackStack()
+                    navController.navigate(R.id.nastroykaFragment)
+
+
                     return@OnNavigationItemSelectedListener true
                 }
                 else -> {
@@ -109,6 +107,7 @@ class MainActivity : AppCompatActivity() {
             counter++
             if (counter > 1) {
                 super.onBackPressed()
+                finish()
             } else {
                 Toast.makeText(this, "${getString(R.string.yana_bosing)}", Toast.LENGTH_SHORT)
                     .show()

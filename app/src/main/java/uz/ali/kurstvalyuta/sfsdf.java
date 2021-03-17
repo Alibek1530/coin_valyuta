@@ -16,7 +16,7 @@ class sfsdf {
 
         DataPoint[] dataPoints=new DataPoint[5];
         dataPoints[0]=new DataPoint(0.1,0.1);
-        for (int i=3;i<=0;i--){
+        for (int i=0;i<10;i++){
 
         }
     }

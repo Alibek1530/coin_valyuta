@@ -55,13 +55,14 @@ class SplashActivity : AppCompatActivity() {
                 }
             }
             override fun onFailure(call: Call<DataModel>, t: Throwable) {
+                Toast.makeText(applicationContext,getString(R.string.netOff),Toast.LENGTH_SHORT).show()
                 setIntent()
             }
         })
     }
     fun setIntent(){
         var mainActivity = Intent(this,MainActivity::class.java)
-        Toast.makeText(this,getString(R.string.netOff),Toast.LENGTH_SHORT).show()
+
         startActivity(mainActivity)
         finish()
     }

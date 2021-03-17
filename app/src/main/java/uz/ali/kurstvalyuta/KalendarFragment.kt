@@ -8,10 +8,7 @@ import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.CalendarView
-import android.widget.FrameLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.get
@@ -45,6 +42,8 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
 
     lateinit var roomDao: UserDao
 
+    lateinit var progress:ProgressBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         roomDao = AppDatabase.getInstance()!!
@@ -54,6 +53,7 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         api = NetworkConnection.getInstance().getApiClient()
         Toast.makeText(view?.context, "ali", Toast.LENGTH_SHORT).show()
+        progress=view.findViewById(R.id.progres_calendar)
         recyclerView = view.findViewById(R.id.RecyclerKalendar)
         toolbarCalendar = view.findViewById(R.id.toolbar_kalendar)
         if (!NetworkOn()){
@@ -74,6 +74,11 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
         calendarView.maxDate = calendar.timeInMillis
         calendarView.minDate = date.time
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
+
+            recyclerView.visibility=View.GONE
+            progress.visibility=View.VISIBLE
+
+
             var mon: String
             if (month < 10) {
                 mon = "0" + (month + 1)
@@ -85,8 +90,6 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
             } else {
                 Toast.makeText(view.context, getString(R.string.netOff), Toast.LENGTH_SHORT).show()
             }
-
-          //  toolbarCalendar.title = "$year-$mon-$dayOfMonth"
         }
 
 
@@ -105,6 +108,8 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
                 if (response.isSuccessful && response.code() == 200) {
                     //    Log.d("tt", "getDate:  "+response.body())
                     getListDav(response.body()!!)
+                    recyclerView.visibility=View.VISIBLE
+                    progress.visibility=View.GONE
                 }
             }
 

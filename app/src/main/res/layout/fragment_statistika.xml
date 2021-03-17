@@ -11,15 +11,29 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:titleTextColor="@color/saaaari"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/saaaari" />
+
+    <ProgressBar
+        android:id="@+id/progres_statistika"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_statistika"
+        app:layout_constraintBottom_toBottomOf="@id/linner"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_statistika" />
@@ -68,11 +82,11 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="4dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginLeft="4dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linner" />
@@ -81,9 +95,9 @@
         android:id="@+id/spinnerYil"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="16dp"
         android:paddingLeft="16dp"
-        android:layout_marginLeft="4dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/spinner" />
 
@@ -92,18 +106,10 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:paddingRight="16dp"
         android:layout_marginRight="4dp"
+        android:paddingRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/spinner" />
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/business"
-        android:layout_marginRight="56dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerOy"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

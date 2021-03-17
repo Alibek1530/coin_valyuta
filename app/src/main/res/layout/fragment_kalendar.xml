@@ -27,6 +27,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar_kalendar" />
+    <ProgressBar
+        android:id="@+id/progres_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center_horizontal"/>
     <FrameLayout
         android:id="@+id/sheet"
         android:layout_width="match_parent"
@@ -45,7 +54,6 @@
             android:id="@+id/kalendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Theme.KustValyuta"
             app:layout_constraintBottom_toBottomOf="parent" />
     </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

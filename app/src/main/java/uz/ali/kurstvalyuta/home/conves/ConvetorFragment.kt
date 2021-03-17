@@ -76,7 +76,7 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
         prefs = view.context.getSharedPreferences("app", Context.MODE_PRIVATE)
         til = prefs.getString("til", "uz").toString()
 
-        prefs.edit().putBoolean("back",true).apply()
+        prefs.edit().putBoolean("back", true).apply()
 
         recyclerView = view.findViewById(R.id.RecyclerViewCon)
         EditTxt = view.findViewById(R.id.edit_txt)
@@ -139,7 +139,7 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
         if (NetworkOn()) {
             date?.let { aa(it) }
         } else {
-            Toast.makeText(view.context,getString(R.string.netOff),Toast.LENGTH_SHORT).show()
+            Toast.makeText(view.context, getString(R.string.netOff), Toast.LENGTH_SHORT).show()
             list = roomDao.getDavlatAllDay(rub) as ArrayList<DataModelItem2>
         }
         setRecycler()
@@ -148,20 +148,18 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
     private fun rubnasum(start: Int, s: CharSequence) {
         if (!start.equals(0)) {
 
-//            val number = 0.0549999
-//            val number3digits:Double = String.format("%.3f", number).toDouble()
-//            val number2digits:Double = String.format("%.2f", number3digits).toDouble()
-//            val solution:Double = String.format("%.1f", number2digits).toDouble()
-//
-//            Log.d("ali", "rubnasum: " +solution)
-
-
             var temp = s.toString()
-            var temppp = temp.toDouble()
+            var temppp = temp.toFloat()
             Log.d("ali", "temppp   $temppp")
-            var rub = (temppp * ((rubQiymat.toDouble()) * 100.toLong())) / 100
+            var rub = (temppp * ((rubQiymat.toFloat()) * 100.toLong())) / 100
             Log.d("ali", "rub:   $rub ")
-            TxtSum.text = rub.toString()
+            //    TxtSum.text = rub.toString()
+
+            var valueWithoutEpsilon = rub.toString().toBigDecimal()
+
+            TxtSum.text = valueWithoutEpsilon.toPlainString()
+
+
         } else {
             TxtSum.text = "0"
         }
@@ -171,8 +169,12 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
         if (!start.equals(0)) {
             var temp = s.toString()
             var temppp = temp.toDouble()
-            var rub = temppp / (rubQiymat.toFloat())
-            TxtSum.text = rub.toString()
+            var rub = temppp /(rubQiymat.toDouble())
+            var natija=(rub*100).toLong()
+            var n=(natija.toDouble()/100)
+
+            var valueWithoutEpsilon = n.toString().toBigDecimal()
+           TxtSum.text =valueWithoutEpsilon.toPlainString()
         } else {
             TxtSum.text = "0"
         }
@@ -185,10 +187,7 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
     }
 
     fun NetworkOn(): Boolean {
-//        var cm = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-//        var isMetered = cm.isActiveNetworkMetered
-//        //   Toast.makeText(view?.context, "mm   " + isMetered, Toast.LENGTH_SHORT).show()
-//        return isMetered
+
         val cm = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
         val netInfo = cm!!.activeNetworkInfo
         return netInfo != null && netInfo.isConnectedOrConnecting
@@ -203,15 +202,8 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
 
 
     fun aa(date: String) {
-
-
         api.getHomeRubOneDay(rub, date).enqueue(object : Callback<DataModel2> {
             override fun onFailure(call: Call<DataModel2>, t: Throwable) {
-                Log.d("ll", "onResponse: " + "EEEEEEEEEEEEEEEEEE")
-
-                list.forEach {
-                    // Log.d("ll", "onResponse:11 " + it.Date)
-                }
             }
 
             override fun onResponse(call: Call<DataModel2>, response: Response<DataModel2>) {
@@ -223,7 +215,6 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
                     var b = roomDao.getBool(ttemp.Code, ttemp.Date)
                     if (b.equals(false) && ttemp.Date.substring(6, 10).toInt() != 2009) {
                         roomDao.insert2(ttemp)
-                        // dataModelDate.date=ttemp.Date.substring(6, 10)
                         roomDao.insertDate(DataModelDate(null, ttemp.Date.substring(6, 10)))
                     }
                     if (ttemp.Date.substring(6, 10).toInt() != 2009) {
@@ -260,7 +251,6 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
         var year = date.substring(6..9)
 
         var dayRet = year + "-" + moon + "-" + day
-
         return dayRet
     }
 
@@ -269,6 +259,6 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
         if (NetworkOn()) {
             prefs.edit().putBoolean(rub, false).apply()
         }
-        Log.d("key", "key false")
+        //   Log.d("key", "key false")
     }
 }

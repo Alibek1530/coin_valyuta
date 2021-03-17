@@ -38,7 +38,6 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
         map["096"] = R.drawable.bn
         map["986"] = R.drawable.br
         map["933"] = R.drawable.by
-        map["048"] = R.drawable.ba
         map["124"] = R.drawable.ca
         map["756"] = R.drawable.ch
         map["156"] = R.drawable.cn
@@ -79,6 +78,7 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
         map["512"] = R.drawable.om
         map["608"] = R.drawable.ph
         map["586"] = R.drawable.pk
+        map["985"] = R.drawable.pl
         map["634"] = R.drawable.qa
         map["946"] = R.drawable.ro
         map["941"] = R.drawable.rs
@@ -101,7 +101,6 @@ class AdaprerHome(var dataVertical: List<DataModelItem>, var mContext: HomeFragm
         map["960"] = R.drawable.xd
         map["886"] = R.drawable.ye
         map["710"] = R.drawable.za
-        Log.d("nn", "bind: tayor ")
     }
 
     override fun getItemCount(): Int {

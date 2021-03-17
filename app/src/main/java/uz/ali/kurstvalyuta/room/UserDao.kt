@@ -11,7 +11,16 @@ interface UserDao {
     fun getDayAllDavlat(): List<DataModelItem>
 
     @Query("select DataModelItem.CcyNm_UZ from DataModelItem")
-    fun getAllDavlat(): List<String>
+    fun getAllDavlatUz(): List<String>
+
+    @Query("select DataModelItem.CcyNm_UZC from DataModelItem")
+    fun getAllDavlatUzRu(): List<String>
+
+    @Query("select DataModelItem.CcyNm_RU from DataModelItem")
+    fun getAllDavlatRu(): List<String>
+
+    @Query("select DataModelItem.CcyNm_EN from DataModelItem")
+    fun getAllDavlatEn(): List<String>
 
 
     @Query("select DataModelDate.date from DataModelDate GROUP BY DataModelDate.date")
@@ -21,7 +30,7 @@ interface UserDao {
     @Query("select * from DataModelItem2 where DataModelItem2.Ccy1=:rub")
     fun getDavlatAllDay(rub: String): List<DataModelItem2>
 
-    @Query("select * from DataModelItem2 where DataModelItem2.Ccy1=:rub AND DataModelItem2.Date1 LIKE :date ORDER BY DataModelItem2.Date1 ASC")
+    @Query("select * from DataModelItem2 where DataModelItem2.Ccy1=:rub AND DataModelItem2.Date1 LIKE :date ORDER BY DataModelItem2.`key` ASC")//ORDER BY DataModelItem2.Date1 ASC
     fun geGraphDavlatAllDay(rub: String,date: String): List<DataModelItem2>//date .01.2019
 
 
