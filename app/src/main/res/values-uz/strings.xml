@@ -17,7 +17,7 @@
     <string name="hello">Salom Alibek, </string>
     <string name="versiya">Versiya 1.0</string>
     <string name="dastur_haqida">Dastir haqida</string>
-    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan uz</string>
+    <string name="sayt">Barcha ma\'lumotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan.</string>
 
     <string name="nastroyka">Sozlamalar</string>
     <string name="asosiy">Asosiy</string>
@@ -28,8 +28,8 @@
     <string name="til">O\'zbek</string>
     <string name="qoshimcha">Qo\'shimcha</string>
     <string name="gmail">Biz bilan bog\'laning</string>
-    <string name="baxo">Ilovani baholang</string>
-    <string name="share">Ilovani ulashing</string>
+    <string name="baxo">Baholang</string>
+    <string name="share">Ulashing</string>
 
 
 

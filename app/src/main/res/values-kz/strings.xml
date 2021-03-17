@@ -2,35 +2,35 @@
 <resources>
 
     <string name="app_name">Kurs Valyuta kz</string>
-    <string name="home">Бош сахифа</string>
+    <string name="home">Бош саҳифа</string>
     <string name="kalendar">Календар</string>
     <string name="statistika">Диаграмма</string>
     <string name="nastroyka">Созламалар</string>
 
-    <string name="izlash">Номи ёки давлат коди</string>Сўм
-    <string name="uzbeksom">Узбек сўми</string>
+    <string name="izlash">Номи ёки давлат коди</string>
+    <string name="uzbeksom">Ўзбек сўми</string>
 
     <string name="som">\ сўм</string>
 
     <string name="netOff">Интернетга уланмаган</string>
 
-    <string name="yana_bosing">Дастурдан чикиш учун яна бир марта босинг.</string>
+    <string name="yana_bosing">Дастурдан чиқиш учун яна бир марта босинг.</string>
 
     <string name="hello">Салом Alibek, </string>
     <string name="versiya">Версия 1.0</string>
-    <string name="dastur_haqida">Дастур хакида</string>
-    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan uz ru</string>Copyright
+    <string name="dastur_haqida">Дастур ҳақида</string>
+    <string name="sayt">Барча маълумотлар Ўзбекистон Республикаси Марказий банки сайтидан олинди.</string>
 
     <string name="asosiy">Асосий</string>
-    <string name="theme">Кориниш</string>
-    <string name="tema_tun">Ток ранг</string>
+    <string name="theme">Кўриниш</string>
+    <string name="tema_tun">Тўқ ранг</string>
     <string name="tema_kun">Оч ранг</string>
     <string name="til_usti">Тил</string>
-    <string name="til">Узбек</string>
-    <string name="qoshimcha">Кошимча</string>
-    <string name="gmail">Биз билан богланинг</string>
-    <string name="baxo">Иловани бахоланг</string>
-    <string name="share">Иловани улашинг</string>
+    <string name="til">Ўзбек</string>
+    <string name="qoshimcha">Қўшимча</string>
+    <string name="gmail">Биз билан боғланинг</string>
+    <string name="baxo">Баҳоланг</string>
+    <string name="share">Улашинг</string>
 
 
     <string name="shareApp">Bvdfbdfb :)

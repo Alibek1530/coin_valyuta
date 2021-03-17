@@ -5,11 +5,12 @@ import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import com.jjoe64.graphview.DefaultLabelFormatter
 import com.jjoe64.graphview.GraphView
+import com.jjoe64.graphview.Viewport
 import com.jjoe64.graphview.series.DataPoint
 import com.jjoe64.graphview.series.LineGraphSeries
 import retrofit2.Call
@@ -24,6 +25,7 @@ import uz.ali.kurstvalyuta.room.AppDatabase
 import uz.ali.kurstvalyuta.room.UserDao
 import uz.ali.kurstvalyuta.utils.DataMoonDay
 import java.text.SimpleDateFormat
+import android.view.View as View1
 
 
 class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
@@ -56,7 +58,7 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
 
     lateinit var textYil: TextView
 
-    lateinit var progress:ProgressBar
+    lateinit var progress: ProgressBar
 
     lateinit var oy: String
     lateinit var yil: String
@@ -65,13 +67,14 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
     lateinit var toolbar: Toolbar
     lateinit var davlatCode: String
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View1, savedInstanceState: Bundle?) {
         toolbar = view.findViewById(R.id.toolbar_statistika)
 
         prefs = view.context.getSharedPreferences("app", Context.MODE_PRIVATE)
@@ -79,7 +82,7 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
 
         graphView = view.findViewById(R.id.graph)
 
-        progress=view.findViewById(R.id.progres_statistika)
+        progress = view.findViewById(R.id.progres_statistika)
 
         spinnerDavlat = view.findViewById(R.id.spinner)
         spinnerYil = view.findViewById(R.id.spinnerYil)
@@ -129,7 +132,7 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
         dateMoonDay = DataMoonDay()
 
         setTextYil(yil + " - ")
-        listOyyy[oy.toInt()-1]
+        listOyyy[oy.toInt() - 1]
 
         adapterDavlat(view)
         adapterYil(view)
@@ -137,7 +140,7 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
 
     }
 
-    private fun adapterOy(view: View) {
+    private fun adapterOy(view: View1) {
         val adapter: ArrayAdapter<String> =
             ArrayAdapter<String>(view.context, android.R.layout.simple_spinner_item, listOyyy)
 
@@ -150,12 +153,12 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
 
             override fun onItemSelected(
                 parent: AdapterView<*>?,
-                view: View?,
+                view: View1?,
                 position: Int,
                 id: Long
             ) {
-                progress.visibility=View.VISIBLE
-                graphView.visibility=View.INVISIBLE
+                progress.visibility = View1.VISIBLE
+                graphView.visibility = View1.INVISIBLE
 
                 spinOy(view, position)
 
@@ -164,12 +167,12 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
         }
     }
 
-    private fun spinOy(view: View?, position: Int) {
+    private fun spinOy(view: View1?, position: Int) {
         oy = listOy.get(position)
 
 
         setTextYil(yil + " - ")
-        setTextOy(listOyyy[oy.toInt()-1])
+        setTextOy(listOyyy[oy.toInt() - 1])
 
 
         if (oy.equals("13")) {
@@ -200,7 +203,7 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
         }
     }
 
-    private fun adapterYil(view: View) {
+    private fun adapterYil(view: View1) {
         val adapter: ArrayAdapter<String> =
             ArrayAdapter<String>(view.context, android.R.layout.simple_spinner_item, listYil)
 
@@ -213,13 +216,13 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
 
             override fun onItemSelected(
                 parent: AdapterView<*>?,
-                view: View?,
+                view: View1?,
                 position: Int,
                 id: Long
             ) {
 
-                progress.visibility=View.VISIBLE
-                graphView.visibility=View.INVISIBLE
+                progress.visibility = View1.VISIBLE
+                graphView.visibility = View1.INVISIBLE
 
 
                 spinYil(view, position)
@@ -227,11 +230,11 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
         }
     }
 
-    private fun spinYil(view: View?, position: Int) {
+    private fun spinYil(view: View1?, position: Int) {
         yil = listYil.get(position)
 
         setTextYil(yil + " - ")
-        setTextOy(listOyyy[oy.toInt()-1])
+        setTextOy(listOyyy[oy.toInt() - 1])
 
         if (oy.equals("13")) {
             if (NetworkOn()) {
@@ -259,7 +262,7 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
         }
     }
 
-    private fun adapterDavlat(view: View) {
+    private fun adapterDavlat(view: View1) {
         val adapter: ArrayAdapter<String> =
             ArrayAdapter<String>(view.context, android.R.layout.simple_spinner_item, listDavlatlar)
 
@@ -272,24 +275,24 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
 
             override fun onItemSelected(
                 parent: AdapterView<*>?,
-                view: View?,
+                view: View1?,
                 position: Int,
                 id: Long
             ) {
-                progress.visibility=View.VISIBLE
-                graphView.visibility=View.INVISIBLE
+                progress.visibility = View1.VISIBLE
+                graphView.visibility = View1.INVISIBLE
 
                 davlatCode = roomDao.getDayAllDavlat().get(position).Code
                 toolbar.title = listDavlatlar.get(position)
                 setTextYil(yil + " - ")
-                listOyyy[oy.toInt()-1]
+                listOyyy[oy.toInt() - 1]
 
                 spinDavlat(view, position)
             }
         }
     }
 
-    private fun spinDavlat(view: View?, position: Int) {
+    private fun spinDavlat(view: View1?, position: Int) {
         davlat = roomDao.getDayAllDavlat().get(position).Ccy
         if (oy.equals("13")) {
             Log.d("rosh d", "sartirovka  " + oy)
@@ -320,55 +323,99 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
 
 
     fun getYearDateShow(rub: String, date: String) {
-
         var listMoon = roomDao.geGraphDavlatAllDay(rub, date) as ArrayList
 
 
-        for (i in 0..listMoon.size-1) {
+        for (i in 0..listMoon.size - 1) {
 
             var date = SimpleDateFormat("dd.MM.yyyy").parse(listMoon[i].Date).time
-         //   Log.d("saymov", "sartirovka  " + date)
-            for (j in 0..listMoon.size-1){
+            //   Log.d("saymov", "sartirovka  " + date)
+            for (j in 0..listMoon.size - 1) {
                 var date1 = SimpleDateFormat("dd.MM.yyyy").parse(listMoon[j].Date).time
-             //   Log.d("saymov", "sartirovka sana  " + date1)
-                if (date<date1){
-                    var temp=listMoon[i]
-                    listMoon[i]=listMoon[j]
-                    listMoon[j]=temp
+                //   Log.d("saymov", "sartirovka sana  " + date1)
+                if (date < date1) {
+                    var temp = listMoon[i]
+                    listMoon[i] = listMoon[j]
+                    listMoon[j] = temp
                 }
             }
         }
+        var minY:Double=listMoon[0].Rate.toDouble()
+        var maxY:Double=listMoon[0].Rate.toDouble()
 
+        for (j in 0..listMoon.size - 2) {
+            if (maxY < listMoon[j+1].Rate.toDouble()) {
+                maxY=listMoon[j+1].Rate.toDouble()
+            }
+            if(minY > listMoon[j+1].Rate.toDouble()){
+                minY=listMoon[j+1].Rate.toDouble()
+            }
+        }
+
+        Toast.makeText(view?.context,"   "+maxY,Toast.LENGTH_SHORT).show()
         val dataPoints = arrayOfNulls<DataPoint>(listMoon.size)
-
         var i: Int = 0
+
         listMoon.forEach {
-            dataPoints[i] = DataPoint(i.toDouble(), it.Rate.toDouble())
+            var date = SimpleDateFormat("dd.MM.yyyy").parse(it.Date).time
+            dataPoints[i] = DataPoint(date.toDouble(), it.Rate.toDouble())
             i++
         }
+
         series = LineGraphSeries<DataPoint>(dataPoints)
         graphView.removeAllSeries()
         graphView.addSeries(series)
+
+        graphView.viewport.isXAxisBoundsManual = true
+        graphView.viewport.setMinX(dataPoints[0]!!.x)
+        graphView.viewport.setMaxX(dataPoints[dataPoints.size - 1]!!.x)
+
+        graphView.viewport.isYAxisBoundsManual = true
+        graphView.viewport.setMinY(minY)
+        graphView.viewport.setMaxY(maxY)
+
+        graphView.gridLabelRenderer.labelFormatter = object : DefaultLabelFormatter() {
+            override fun formatLabel(value: Double, isValueX: Boolean): String {
+                if (isValueX) {
+                    return ""
+                }
+                return super.formatLabel(value, isValueX)
+            }
+        }
+        //  super.formatLabel(value, isValueX)
+
+
         // graphView.removeSeries(series)
-        Toast.makeText(view?.context, "en   ${dataPoints.size} ", Toast.LENGTH_SHORT)
-            .show()
+
         series.isDrawDataPoints = true
         series.dataPointsRadius = 6.0f
         series.title = rub
         graphView.legendRenderer.isVisible = true
         // graphView.legendRenderer.setFixedPosition(14,25)
         //  graphView.legendRenderer.textColor=ali rang
-     //   Toast.makeText(view?.context, "size  " + listMoon.size, Toast.LENGTH_SHORT).show()
-           graphView.gridLabelRenderer.numHorizontalLabels =12
+        //   Toast.makeText(view?.context, "size  " + listMoon.size, Toast.LENGTH_SHORT).show()
+        graphView.gridLabelRenderer.numHorizontalLabels = listMoon.size
         //    Toast.makeText(view?.context,"sizewhen  "+first,Toast.LENGTH_SHORT).show()
         graphView.gridLabelRenderer.numVerticalLabels = 6
         graphView.gridLabelRenderer.textSize = 17.0f
+        graphView.viewport.isScalable = true
+
+
+
+
+
         series.setOnDataPointTapListener { series, dataPoint ->
-            Toast.makeText(view?.context, "${dataPoint}", Toast.LENGTH_SHORT)
-                .show()
+            var date = SimpleDateFormat("dd.MM.yyyy")
+            var a = date.format(dataPoint.x.toLong())
+            Toast.makeText(
+                view?.context,
+                a + " --> " + dataPoint.y + " " + getString(R.string.som),
+                Toast.LENGTH_SHORT
+            ).show()
         }
-        progress.visibility=View.GONE
-        graphView.visibility=View.VISIBLE
+
+        progress.visibility = View1.GONE
+        graphView.visibility = View1.VISIBLE
     }
 
     fun setTextYil(yil: String) {
@@ -380,24 +427,34 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
     }
 
     fun getMoonDateShow(rub: String, date: String) {
+
         var listMoon = roomDao.geGraphDavlatAllDay(rub, date) as ArrayList
 
 
-        for (i in 0..listMoon.size-1) {
+        for (i in 0..listMoon.size - 1) {
 
             var date = SimpleDateFormat("dd.MM.yyyy").parse(listMoon[i].Date).time
-            for (j in 0..listMoon.size-1){
+            for (j in 0..listMoon.size - 1) {
                 var date1 = SimpleDateFormat("dd.MM.yyyy").parse(listMoon[j].Date).time
                 //   Log.d("saymov", "sartirovka sana  " + date1)
-                if (date<date1){
-                    var temp=listMoon[i]
-                    listMoon[i]=listMoon[j]
-                    listMoon[j]=temp
+                if (date < date1) {
+                    var temp = listMoon[i]
+                    listMoon[i] = listMoon[j]
+                    listMoon[j] = temp
                 }
             }
         }
+        var minY:Double=listMoon[0].Rate.toDouble()
+        var maxY:Double=listMoon[0].Rate.toDouble()
 
-
+        for (j in 0..listMoon.size - 2) {
+            if (maxY < listMoon[j+1].Rate.toDouble()) {
+                maxY=listMoon[j+1].Rate.toDouble()
+            }
+            if(minY > listMoon[j+1].Rate.toDouble()){
+                minY=listMoon[j+1].Rate.toDouble()
+            }
+        }
 
         //  16.01.2021
         val dataPoints = arrayOfNulls<DataPoint>(listMoon.size)
@@ -415,9 +472,28 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
         series = LineGraphSeries<DataPoint>(dataPoints)
         graphView.removeAllSeries()
         graphView.addSeries(series)
+
+
+        graphView.viewport.isYAxisBoundsManual = true
+        graphView.viewport.setMinY(minY)
+        graphView.viewport.setMaxY(maxY)
+
+        graphView.viewport.isXAxisBoundsManual = true
+        graphView.viewport.setMinX(dataPoints[0]!!.x)
+        graphView.viewport.setMaxX(dataPoints[dataPoints.size - 1]!!.x)
+
+
+        graphView.gridLabelRenderer.labelFormatter = object : DefaultLabelFormatter() {
+            override fun formatLabel(value: Double, isValueX: Boolean): String {
+                return super.formatLabel(value, isValueX)
+            }
+        }
+        //  super.formatLabel(value, isValueX)
+
+
         // graphView.removeSeries(series)
         // series.resetData()
-
+        graphView.viewport.isScalable = true
         series.isDrawDataPoints = true
         series.dataPointsRadius = 6.0f
         series.title = rub
@@ -430,12 +506,17 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
         graphView.gridLabelRenderer.textSize = 17.0f
 
         series.setOnDataPointTapListener { series, dataPoint ->
-            Toast.makeText(view?.context, "${dataPoint}", Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(
+                view?.context,
+                textOy.text.toString() + " " + dataPoint.x.toInt() + " --> " + dataPoint.y + " " + getString(
+                    R.string.som
+                ),
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
-        progress.visibility=View.GONE
-        graphView.visibility=View.VISIBLE
+        progress.visibility = View1.GONE
+        graphView.visibility = View1.VISIBLE
     }
 
     fun firstFun(first: Int): Int {
@@ -673,6 +754,7 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
             aa(dayRet)
         }
     }
+
     fun getDateYil(date: String) {
         //  2020-12-36 return
 

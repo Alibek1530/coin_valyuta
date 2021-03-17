@@ -14,8 +14,8 @@
     <string name="til">O\'zbek</string>
     <string name="qoshimcha">Qo\'shimcha</string>
     <string name="gmail">Biz bilan bog\'laning</string>
-    <string name="baxo">Ilovani baholang</string>
-    <string name="share">Ilovani ulashing</string>
+    <string name="baxo">Baholang</string>
+    <string name="share">Ulashing</string>
 
     <string name="izlash">Nomi yoki davlat kodi</string>
 
@@ -30,9 +30,9 @@
 
     <string name="hello">Salom Alibek, </string>
     <string name="versiya">Versiya 1.0</string>
-    <string name="dastur_haqida">Dastir haqida</string>
-    <string name="sayt">Barcha ma\'lutotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan edf</string>
-    Copyright
+    <string name="dastur_haqida">Dastir haqida</string>Барча маълумотлар Ўзбекистон Республикаси Марказий банки сайтидан олинди
+    <string name="sayt">Barcha ma\'lumotlar O\'zbekiston Respublikasi Markaziy banki saytidan olindi.</string>
+
     <string name="copyright" translatable="false">Copyright © 2021 Saymov Alibek</string>
 
     <string name="uz" translatable="false">O\'zbek</string>
