@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="uz.ali.kurstvalyuta.home.HomeFragment"
+        android:name="uz.ali.kursvalyuta.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/kalendarFragment"
-        android:name="uz.ali.kurstvalyuta.KalendarFragment"
+        android:name="uz.ali.kursvalyuta.KalendarFragment"
         android:label="fragment_kalendar"
         tools:layout="@layout/fragment_kalendar" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/statistikaFragment"
-        android:name="uz.ali.kurstvalyuta.StatistikaFragment"
+        android:name="uz.ali.kursvalyuta.StatistikaFragment"
         android:label="fragment_statistika"
         tools:layout="@layout/fragment_statistika" >
         <action
@@ -46,17 +46,17 @@
     </fragment>
     <fragment
         android:id="@+id/nastroykaFragment"
-        android:name="uz.ali.kurstvalyuta.NastroykaFragment"
+        android:name="uz.ali.kursvalyuta.NastroykaFragment"
         android:label="fragment_nastroyka"
         tools:layout="@layout/fragment_nastroyka" />
     <fragment
         android:id="@+id/convetorFragment"
-        android:name="uz.ali.kurstvalyuta.home.conves.ConvetorFragment"
+        android:name="uz.ali.kursvalyuta.home.conves.ConvetorFragment"
         android:label="fragment_convetor"
         tools:layout="@layout/fragment_convetor" />
     <fragment
         android:id="@+id/splashFragment"
-        android:name="uz.ali.kurstvalyuta.splash.SplashFragment"
+        android:name="uz.ali.kursvalyuta.splash.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action

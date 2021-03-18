@@ -42,12 +42,12 @@
 
 
     <string name="shareApp">Bu default :)
-        https://play.google.com/store/apps/details?id=com.ali.filmgokino
+        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta
     </string>
-    <!--com.ali.filmgokino-->
+    <!--uz.ali.kursvalyuta-->
 
     <string name="urlPlayApp" translatable="false">
-        https://play.google.com/store/apps/details?id=com.ali.filmgokino
+        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta
     </string>
     <string name="urlGmail" translatable="false">saymovalibek1530@gmail.com</string>
 

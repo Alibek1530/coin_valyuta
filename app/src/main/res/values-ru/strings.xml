@@ -33,14 +33,9 @@
 
 
     <string name="shareApp">Эта программа интересна и бесплатна для проведения свободного времени :)
-        https://play.google.com/store/apps/details?id=com.ali.filmgokino
+        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta
     </string>
-    <!--com.ali.filmgokino-->
 
-    <string name="urlPlayApp" translatable="false">
-        https://play.google.com/store/apps/details?id=com.ali.filmgokino
-    </string>
-    <string name="urlGmail" translatable="false">saymovalibek1530@gmail.com</string>
 
 
 

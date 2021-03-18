@@ -9,13 +9,21 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "uz.ali.kurstvalyuta"
+        applicationId "uz.ali.kursvalyuta"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        android.applicationVariants.all {
+            variant ->
+                variant.outputs.all {
+                    def appName = "Kurs Valyuta"
+                    outputFileName = appName + ".apk"
+                }
+        }
+
     }
 
     buildTypes {
