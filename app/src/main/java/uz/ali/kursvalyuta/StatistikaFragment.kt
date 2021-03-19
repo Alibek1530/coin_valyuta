@@ -437,21 +437,18 @@ class StatistikaFragment : Fragment(R.layout.fragment_statistika) {
     fun getMoonDateShow(rub: String, date: String) {
 
         var listMoon = roomDao.geGraphDavlatAllDay(rub, date) as ArrayList
-      //  Log.d("saymov", "sartirovka sana   " + listMoon[0])
 
-        for (i in 0..listMoon.size - 1) {
-
-            var date = SimpleDateFormat("dd.MM.yyyy").parse(listMoon[i].Date).time
-            for (j in 0..listMoon.size - 1) {
-                var date1 = SimpleDateFormat("dd.MM.yyyy").parse(listMoon[j].Date).time
-                //   Log.d("saymov", "sartirovka sana  " + date1)
-                if (date < date1) {
+        var date = SimpleDateFormat("dd.MM.yyyy")
+        for (i in 0..listMoon.size-1) {
+            for (j in 0..listMoon.size-1) {
+                if (date.parse(listMoon[i].Date).time < date.parse(listMoon[j].Date).time) {
                     var temp = listMoon[i]
                     listMoon[i] = listMoon[j]
                     listMoon[j] = temp
                 }
             }
         }
+
         var first = 15
         var minY: Double = 0.0
         var maxY: Double = 0.0

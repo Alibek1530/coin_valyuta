@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
@@ -136,20 +137,16 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
             Toast.makeText(view.context, getString(R.string.netOff), Toast.LENGTH_SHORT).show()
             list = roomDao.getDavlatAllDay(rub) as ArrayList<DataModelItem2>
 
-            for (i in 0..list.size - 1) {
-                var date = SimpleDateFormat("dd.MM.yyyy").parse(list[i].Date).time
-                for (j in 0..list.size - 1) {
-                    var date1 = SimpleDateFormat("dd.MM.yyyy").parse(list[j].Date).time
-                    if (date < date1) {
-                        var temp = list[i]
-                        list[i] = list[j]
-                        list[j] = temp
+            var date = SimpleDateFormat("dd.MM.yyyy")
+            for (i in 0..list.size-1) {
+                for (j in 0..list.size-1) {
+                    if (date.parse(list[i].Date).time > date.parse(list[j].Date).time) {
+                        var temp = list[j]
+                        list[j] = list[i]
+                        list[i] = temp
                     }
                 }
             }
-
-
-
         }
         setRecycler()
     }
