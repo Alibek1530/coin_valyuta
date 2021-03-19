@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Kurs Valyuta uz</string>
+    <string name="app_name">Valyuta Konvertori MBU</string>
     <string name="home">Bosh sahifa</string>
     <string name="kalendar">Kalendar</string>
-    <string name="statistika">Statistika</string>
+    <string name="statistika">Grafik</string>
 
     <string name="izlash">Nomi yoki davlat kodi</string>
     <string name="uzbeksom">O\'zbek so\'mi</string>
@@ -17,7 +17,7 @@
     <string name="hello">Salom Alibek, </string>
     <string name="versiya">Versiya 1.0</string>
     <string name="dastur_haqida">Dastir haqida</string>
-    <string name="sayt">Barcha ma\'lumotlar O\'zbekiston Respublikasi Markaziy banki saytidan olingan.</string>
+    <string name="sayt">Barcha ma\'lumotlar O\'zbekiston Respublikasi Markaziy banki saytidan olindi.</string>
 
     <string name="nastroyka">Sozlamalar</string>
     <string name="asosiy">Asosiy</string>
@@ -30,20 +30,6 @@
     <string name="gmail">Biz bilan bog\'laning</string>
     <string name="baxo">Baholang</string>
     <string name="share">Ulashing</string>
-
-
-
-
-
-    <string name="shareApp">Bvdfbdfb :)
-        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta
-    </string>
-
-
-
-
-
-
 
 
     <!-- TODO: Remove or change this placeholder text -->

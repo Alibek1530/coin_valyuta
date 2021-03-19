@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Kurs Valyuta en</string>
+    <string name="app_name">Currency Converter CBU</string>
 
     <string name="home">Main</string>
     <string name="kalendar">Calendar</string>
-    <string name="statistika">Statistics</string>
+    <string name="statistika">Graph</string>
     <string name="nastroyka">Settings</string>
 
     <string name="izlash">Currency name or code</string>
@@ -33,9 +33,6 @@
     <string name="share">Share</string>
 
 
-    <string name="shareApp">andliyskiy
-        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta
-    </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

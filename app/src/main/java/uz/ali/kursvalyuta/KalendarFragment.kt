@@ -36,7 +36,7 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
 
     lateinit var roomDao: UserDao
 
-    lateinit var progress:ProgressBar
+    lateinit var progress: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,15 +45,20 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         api = NetworkConnection.getInstance().getApiClient()
-        Toast.makeText(view?.context, "ali", Toast.LENGTH_SHORT).show()
-        progress=view.findViewById(R.id.progres_calendar)
+        progress = view.findViewById(R.id.progres_calendar)
         recyclerView = view.findViewById(R.id.RecyclerKalendar)
         toolbarCalendar = view.findViewById(R.id.toolbar_kalendar)
-        if (!NetworkOn()){
-            Toast.makeText(view.context,getString(R.string.netOff),Toast.LENGTH_SHORT).show()
+        list=roomDao.getDayAllDavlat()
+        if (!list.size.equals(0)) {
+            if (!NetworkOn()){
+                Toast.makeText(view.context, getString(R.string.netOff), Toast.LENGTH_SHORT).show()
+            }
+            getListDav(roomDao.getDayAllDavlat())
+        }else{
+            if (!NetworkOn()){
+                Toast.makeText(view.context, getString(R.string.netOff), Toast.LENGTH_SHORT).show()
+            }
         }
-        getListDav(roomDao.getDayAllDavlat())
-
         frameLayout = view.findViewById<FrameLayout>(R.id.sheet)
 
         //   frameLayout=FrameLayout(view.context)
@@ -68,8 +73,8 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
         calendarView.minDate = date.time
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
 
-            recyclerView.visibility=View.GONE
-            progress.visibility=View.VISIBLE
+            recyclerView.visibility = View.GONE
+            progress.visibility = View.VISIBLE
 
 
             var mon: String
@@ -86,13 +91,14 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
         }
 
 
-
     }
 
     fun getListDav(list: List<DataModelItem>) {
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
         recyclerView.adapter = AdaprerCalendar(list)
-        toolbarCalendar.title = list.get(0).Date
+        if (!list.size.equals(0)) {
+            toolbarCalendar.title = list.get(0).Date
+        }
     }
 
     fun setApi(date: String) {
@@ -101,8 +107,8 @@ class KalendarFragment : Fragment(R.layout.fragment_kalendar) {
                 if (response.isSuccessful && response.code() == 200) {
                     //    Log.d("tt", "getDate:  "+response.body())
                     getListDav(response.body()!!)
-                    recyclerView.visibility=View.VISIBLE
-                    progress.visibility=View.GONE
+                    recyclerView.visibility = View.VISIBLE
+                    progress.visibility = View.GONE
                 }
             }
 

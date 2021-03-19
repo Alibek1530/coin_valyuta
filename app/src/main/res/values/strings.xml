@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Kurs Valyuta</string>
+    <string name="app_name">Valyuta Konvertori MBU</string>
     <string name="home">Bosh sahifa</string>
     <string name="kalendar">Kalendar</string>
-    <string name="statistika">Statistika</string>
+    <string name="statistika">Grafik</string>
 
 
     <string name="nastroyka">Sozlamalar</string>
@@ -40,8 +40,7 @@
     <string name="en" translatable="false">English</string>
     <string name="uz_ru" translatable="false">Узбек</string>
 
-
-    <string name="shareApp">Bu default :)
+    <string name="shareApp" translatable="false">Курсы валют ЦБУ
         https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta
     </string>
     <!--uz.ali.kursvalyuta-->

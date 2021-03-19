@@ -27,6 +27,7 @@ import uz.ali.kursvalyuta.network.ApiService
 import uz.ali.kursvalyuta.network.NetworkConnection
 import uz.ali.kursvalyuta.room.AppDatabase
 import uz.ali.kursvalyuta.room.UserDao
+import java.text.SimpleDateFormat
 
 
 class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
@@ -134,6 +135,21 @@ class ConvetorFragment : Fragment(R.layout.fragment_convetor) {
         } else {
             Toast.makeText(view.context, getString(R.string.netOff), Toast.LENGTH_SHORT).show()
             list = roomDao.getDavlatAllDay(rub) as ArrayList<DataModelItem2>
+
+            for (i in 0..list.size - 1) {
+                var date = SimpleDateFormat("dd.MM.yyyy").parse(list[i].Date).time
+                for (j in 0..list.size - 1) {
+                    var date1 = SimpleDateFormat("dd.MM.yyyy").parse(list[j].Date).time
+                    if (date < date1) {
+                        var temp = list[i]
+                        list[i] = list[j]
+                        list[j] = temp
+                    }
+                }
+            }
+
+
+
         }
         setRecycler()
     }

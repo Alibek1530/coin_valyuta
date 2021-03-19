@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Курс валюта</string>
+    <string name="app_name">Конвертер Валют ЦБУ</string>
     <string name="home">Главный</string>
     <string name="kalendar">Календарь</string>
-    <string name="statistika">Статистика</string>
+    <string name="statistika">График</string>
     <string name="nastroyka">Настройки</string>
 
     <string name="izlash">Название или код валюты</string>
@@ -30,14 +30,6 @@
     <string name="gmail">Написать нам</string>
     <string name="baxo">Оценить</string>
     <string name="share">Поделиться</string>
-
-
-    <string name="shareApp">Эта программа интересна и бесплатна для проведения свободного времени :)
-        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta
-    </string>
-
-
-
 
 
 

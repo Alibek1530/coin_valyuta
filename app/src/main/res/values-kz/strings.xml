@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Kurs Valyuta kz</string>
+    <string name="app_name">Валюта Конвертор МБУ</string>
     <string name="home">Бош саҳифа</string>
     <string name="kalendar">Календар</string>
-    <string name="statistika">Диаграмма</string>
+    <string name="statistika">График</string>
     <string name="nastroyka">Созламалар</string>
 
     <string name="izlash">Номи ёки давлат коди</string>
@@ -31,16 +31,6 @@
     <string name="gmail">Биз билан боғланинг</string>
     <string name="baxo">Баҳоланг</string>
     <string name="share">Улашинг</string>
-
-
-    <string name="shareApp">Bvdfbdfb :)
-        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta
-    </string>
-
-
-
-
-
 
 
     <!-- TODO: Remove or change this placeholder text -->
