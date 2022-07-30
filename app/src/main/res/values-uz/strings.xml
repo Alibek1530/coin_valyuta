@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Valyuta Konvertori MBU</string>
+    <string name="app_name">Valyuta</string>
     <string name="home">Bosh sahifa</string>
     <string name="kalendar">Kalendar</string>
     <string name="statistika">Grafik</string>
@@ -10,11 +10,13 @@
 
     <string name="som">\ so\'m</string>
 
+
     <string name="netOff">Internetga ulanmagan</string>
 
     <string name="yana_bosing">Dasturdan chiqish uchun yana bir marta bosing.</string>
 
-    <string name="hello">Salom Alibek, </string>
+<!--    <string name="hello">Salom Alibek, </string>-->
+    <string name="hello">Salom Asqar, </string>
     <string name="versiya">Versiya 1.0</string>
     <string name="dastur_haqida">Dastir haqida</string>
     <string name="sayt">Barcha ma\'lumotlar O\'zbekiston Respublikasi Markaziy banki saytidan olindi.</string>

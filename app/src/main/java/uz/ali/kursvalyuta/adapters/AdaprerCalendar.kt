@@ -62,7 +62,6 @@ class AdaprerCalendar(var dataVertical: List<DataModelItem>) :
                 HomeFlagPlus.setImageResource(R.drawable.ic_baseline_west)
             }
         }
-
     }
     private fun setChange(model: DataModelItem): String {
         var temp = ""

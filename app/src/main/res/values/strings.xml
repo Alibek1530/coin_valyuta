@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Valyuta Konvertori MBU</string>
+    <string name="app_name">Valyuta</string>
     <string name="home">Bosh sahifa</string>
     <string name="kalendar">Kalendar</string>
     <string name="statistika">Grafik</string>
@@ -28,27 +28,36 @@
     <string name="yana_bosing">Dasturdan chiqish uchun yana bir marta bosing.</string>
 
 
-    <string name="hello">Salom Alibek, </string>
+<!--    <string name="hello">Salom Alibek, </string>-->
+    <string name="hello">Salom Asqar, </string>
     <string name="versiya">Versiya 1.0</string>
     <string name="dastur_haqida">Dastir haqida</string>Барча маълумотлар Ўзбекистон Республикаси Марказий банки сайтидан олинди
     <string name="sayt">Barcha ma\'lumotlar O\'zbekiston Respublikasi Markaziy banki saytidan olindi.</string>
 
-    <string name="copyright" translatable="false">Copyright © 2021 Saymov Alibek</string>
+    <string name="copyright" translatable="false">Copyright © 2021</string>
 
     <string name="uz" translatable="false">O\'zbek</string>
     <string name="ru" translatable="false">Русский</string>
     <string name="en" translatable="false">English</string>
     <string name="uz_ru" translatable="false">Узбек</string>
 
+<!--    <string name="shareApp" translatable="false">Курсы валют ЦБУ-->
+<!--        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta-->
+<!--    </string>-->
     <string name="shareApp" translatable="false">Курсы валют ЦБУ
-        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta
+        https://play.google.com/store/apps/details?id=uz.asqar.kursvalyuta
     </string>
     <!--uz.ali.kursvalyuta-->
 
+<!--    <string name="urlPlayApp" translatable="false">-->
+<!--        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta-->
+<!--    </string>-->
     <string name="urlPlayApp" translatable="false">
-        https://play.google.com/store/apps/details?id=uz.ali.kursvalyuta
+        https://play.google.com/store/apps/details?id=uz.asqar.kursvalyuta
     </string>
-    <string name="urlGmail" translatable="false">saymovalibek1530@gmail.com</string>
+
+<!--    <string name="urlGmail" translatable="false">saymovalibek1530@gmail.com</string>-->
+    <string name="urlGmail" translatable="false">asqar@gmail.com</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

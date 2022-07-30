@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Конвертер Валют ЦБУ</string>
+    <string name="app_name">Валютa</string>
     <string name="home">Главный</string>
     <string name="kalendar">Календарь</string>
     <string name="statistika">График</string>
@@ -15,7 +15,8 @@
 
     <string name="yana_bosing">Чтобы выйти из программы, нажмите ещё раз.</string>
 
-    <string name="hello">Привет Алибек, </string>
+<!--    <string name="hello">Привет Алибек, </string>-->
+    <string name="hello">Привет Asqar, </string>
     <string name="versiya">Версия 1.0</string>
     <string name="dastur_haqida">О приложении</string>
     <string name="sayt">Вся информация взята с сайта Центрального банка Республики Узбекистан.</string>Copyright

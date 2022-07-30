@@ -83,7 +83,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), Data, SearchView.OnQueryT
                     roomDao?.insert(response.body())
                 }
             }
-
             override fun onFailure(call: Call<DataModel>, t: Throwable) {
                 Toast.makeText(view?.context, getString(R.string.netOff), Toast.LENGTH_SHORT).show()
 

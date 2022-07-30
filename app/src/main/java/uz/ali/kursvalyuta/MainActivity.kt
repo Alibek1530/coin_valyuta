@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var prefs: SharedPreferences
     var counter = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         prefs = getSharedPreferences("app", Context.MODE_PRIVATE)
 
         RuntimeLocaleChanger.setLocale(this)
+
         if (prefs.getString("tema", "kun").equals("kun")) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             prefs.edit().putString("tema", "kun").apply()
@@ -60,16 +60,16 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.kalendarFragment)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.page_3 -> {
-                    var q = prefs.getBoolean("back", false)
-                    if (q) {
-                        prefs.edit().putBoolean("back", false).apply()
-                        super.onBackPressed()
-                    }
-                    navController.popBackStack()
-                    navController.navigate(R.id.statistikaFragment)
-                    return@OnNavigationItemSelectedListener true
-                }
+//                R.id.page_3 -> {
+//                    var q = prefs.getBoolean("back", false)
+//                    if (q) {
+//                        prefs.edit().putBoolean("back", false).apply()
+//                        super.onBackPressed()
+//                    }
+//                    navController.popBackStack()
+//                    navController.navigate(R.id.statistikaFragment)
+//                    return@OnNavigationItemSelectedListener true
+//                }
                 R.id.page_4 -> {
 
                     var q = prefs.getBoolean("back", false)
@@ -115,5 +115,4 @@ class MainActivity : AppCompatActivity() {
             }).start()
         }
     }
-
 }

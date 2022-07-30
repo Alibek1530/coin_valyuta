@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Валюта Конвертор МБУ</string>
+    <string name="app_name">Валюта</string>
     <string name="home">Бош саҳифа</string>
     <string name="kalendar">Календар</string>
     <string name="statistika">График</string>
@@ -16,7 +16,8 @@
 
     <string name="yana_bosing">Дастурдан чиқиш учун яна бир марта босинг.</string>
 
-    <string name="hello">Салом Alibek, </string>
+<!--    <string name="hello">Салом Alibek, </string>-->
+    <string name="hello">Hi Asqar, </string>
     <string name="versiya">Версия 1.0</string>
     <string name="dastur_haqida">Дастур ҳақида</string>
     <string name="sayt">Барча маълумотлар Ўзбекистон Республикаси Марказий банки сайтидан олинди.</string>

@@ -13,12 +13,12 @@
         android:state_checked="true"
         android:icon="@drawable/ic_invitation"
         android:title="@string/kalendar"/>
-    <item
-        android:id="@+id/page_3"
-        android:enabled="true"
-        android:state_checked="true"
-        android:icon="@drawable/ic_chart"
-        android:title="@string/statistika"/>
+<!--    <item-->
+<!--        android:id="@+id/page_3"-->
+<!--        android:enabled="true"-->
+<!--        android:state_checked="true"-->
+<!--        android:icon="@drawable/ic_chart"-->
+<!--        android:title="@string/statistika"/>-->
     <item
         android:id="@+id/page_4"
         android:enabled="true"

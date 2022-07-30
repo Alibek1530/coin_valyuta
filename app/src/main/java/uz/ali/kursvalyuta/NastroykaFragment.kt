@@ -141,15 +141,15 @@ class NastroykaFragment() : Fragment() {
 
 
 
-        binding.cardJonat.setOnClickListener {
-            ShareF()
-        }
-        binding.cardBaxo.setOnClickListener {
-            PlayMarketStar()
-        }
-        binding.cardGmail.setOnClickListener {
-            EAccount()
-        }
+//        binding.cardJonat.setOnClickListener {
+//            ShareF()
+//        }
+//        binding.cardBaxo.setOnClickListener {
+//            PlayMarketStar()
+//        }
+//        binding.cardGmail.setOnClickListener {
+//            EAccount()
+//        }
 
     }
 
@@ -184,12 +184,12 @@ class NastroykaFragment() : Fragment() {
     private fun setChange() {
         binding.toolbarNastroyka.title = getString(R.string.nastroyka)
         binding.txtAsosiy.text = getString(R.string.asosiy)
-        binding.txtQoshimcha.text = getString(R.string.qoshimcha)
+      //  binding.txtQoshimcha.text = getString(R.string.qoshimcha)
         binding.txtTema.text = getString(R.string.theme)
         binding.txtTil.text = getString(R.string.til_usti)
-        binding.txtGmail.text = getString(R.string.gmail)
-        binding.txtBaxo.text = getString(R.string.baxo)
-        binding.txtJonat.text = getString(R.string.share)
+    //    binding.txtGmail.text = getString(R.string.gmail)
+    //    binding.txtBaxo.text = getString(R.string.baxo)
+     //   binding.txtJonat.text = getString(R.string.share)
         binding.txtTill.text = getString(R.string.til)
 
         binding.txtMal.text = getString(R.string.dastur_haqida)

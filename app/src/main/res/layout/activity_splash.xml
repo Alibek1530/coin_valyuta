@@ -30,18 +30,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-        android:id="@+id/sp"
-        android:text="Copyright © 2021 Saymov Alibek"
-        android:textSize="15sp"
-        android:textColor="?attr/colorOnPrimary"
-        android:padding="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageSplash"/>
+<!--    <TextView-->
+<!--        android:id="@+id/sp"-->
+<!--        android:text="Copyright © 2021"-->
+<!--        android:textSize="15sp"-->
+<!--        android:textColor="?attr/colorOnPrimary"-->
+<!--        android:padding="4dp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/imageSplash"/>-->
     <TextView
         android:text="All rights reserved"
         android:textSize="13sp"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sp"/>
+        app:layout_constraintTop_toBottomOf="@id/imageSplash"/>
 
     <ProgressBar
         android:layout_width="wrap_content"

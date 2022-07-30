@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Currency Converter CBU</string>
+    <string name="app_name">Valyuta</string>
 
     <string name="home">Main</string>
     <string name="kalendar">Calendar</string>
@@ -16,7 +16,8 @@
 
     <string name="yana_bosing">Press again to exit.</string>
 
-    <string name="hello">Hi Alibek, </string>
+<!--    <string name="hello">Hi Alibek, </string>-->
+    <string name="hello">Hi Asqar, </string>
     <string name="versiya">Version 1.0</string>
     <string name="dastur_haqida">About</string>
     <string name="sayt">All information is taken from the website of the Central Bank of the Republic of Uzbekistan.</string>Copyright

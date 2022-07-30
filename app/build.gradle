@@ -19,7 +19,7 @@ android {
         android.applicationVariants.all {
             variant ->
                 variant.outputs.all {
-                    def appName = "Конвертер Валют ЦБУ"
+                    def appName = "Валютa"
                     outputFileName = appName + ".apk"
                 }
         }
